@@ -12,51 +12,71 @@ public class SingleLinkedList2<E> {
     }
 
     public boolean isEmpty() {
-
+        //TODO
     }
 
     public void addFirst(E element) {
-
+        //TODO
     }
 
     public void addLast(E element) {
-        
+        //TODO
     }
 
     public void add(E element, int index) {
-
+        //TODO
     }
 
-    public void getFirst(E element) {
-
+    public E getFirst() {
+        //TODO
     }
 
-    public void getLast(E element) {
+    public E getLast() {
+        //TODO
+    }
 
+    public E get(int index) {
+        //TODO
     }
 
     public void removeFirst() {
+        //TODO
+    }
 
+    public void removeLast() {
+        //TODO
     }
 
     public void remove(E element) {
+        //TODO
+    }
 
+    public void removeAt(int index) {
+        //TODO
     }
 
     public void Sort(Comparator<E> comparator) {
-        
+        //TODO
     }
 
-    public void size() {
+    public boolean exists(E element) {
+        //TODO
+    }
 
+    public void swap(int index1, int index2) {
+        //TODO
+    }
+
+    public int size() {
+        return size;
     }
 
     public void printList() {
-
+        //TODO
     }
 
     public void clear() {
-
+        //TODO
     }
   
     private static class Node<E> {
@@ -65,18 +85,6 @@ public class SingleLinkedList2<E> {
 
         public Node(E element, Node<E> next) {
             this.element = element;
-            this.next = next;
-        }
-
-        public E getElement() {
-            return element;
-        }
-
-        public Node<E> getNext() {
-            return next;
-        }
-
-        public void setNext(Node<E> next) {
             this.next = next;
         }
     }
