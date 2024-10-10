@@ -71,7 +71,7 @@ public class DoubleLinkedList<E> {
         return size;
     }
 
-    public void printList() {
+    public String printList() {
         //TODO
     }
 

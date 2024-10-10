@@ -12,7 +12,7 @@ public class SingleLinkedList2<E> {
     }
 
     public boolean isEmpty() {
-        //TODO
+        return head == null;
     }
 
     public void addFirst(E element) {
@@ -71,7 +71,7 @@ public class SingleLinkedList2<E> {
         return size;
     }
 
-    public void printList() {
+    public String printList() {
         //TODO
     }
 
