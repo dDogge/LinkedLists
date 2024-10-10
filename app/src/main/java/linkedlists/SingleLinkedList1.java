@@ -13,11 +13,7 @@ public class SingleLinkedList1<E> {
     }
 
     public boolean isEmpty() {
-        if (head == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return head == null;
     }
 
     public void addFirst(E element) {
@@ -46,9 +42,10 @@ public class SingleLinkedList1<E> {
     }
 
     public void add(E element, int index) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index > size) {
             throw new IllegalArgumentException("Index out of bounds: " + index);
         }
+        
 
         if (isEmpty() || (index == 0)) {
             addFirst(element);
@@ -141,15 +138,82 @@ public class SingleLinkedList1<E> {
     }
 
     public void removeAt(int index) {
-        //TODO
+        if (isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
+
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Index out of bounds: " + index);
+        }
+
+        if (index == 0) {
+            removeFirst();
+        } else if (index == size - 1) {
+            removeLast();
+        } else {
+            Node<E> temp = head;
+            
+            for (int i = 0; i < index - 1; i++) {
+                temp = temp.next;
+            }
+
+            temp.next = temp.next.next;
+        }
+        size--;
     }
 
+    //Selection sort
+    //Ineffective because of the nature of linked list
+    // O(n) = n³
     public void Sort(Comparator<E> comparator) {
-        //TODO
+        int n = size;
+
+        for (int i = 0; i < (n - 1); i++) {
+            int min = i;
+
+            for (int j = i + 1; j < n; j++) {
+                if (comparator.compare(get(j), get(min)) < 0) {
+                    min = j;
+                }
+            }
+
+            if (min != i) {
+                swap(i, min);
+            }
+        }
     }
 
     public void swap(int index1, int index2) {
-        //TODO
+        if (isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
+
+        if (index1 >= size) {
+            throw new IllegalArgumentException("Index out of bounds: " + index1);
+        }
+
+        if (index2 >= size) {
+            throw new IllegalArgumentException("Index out of bounds: " + index2);
+        }
+
+        if (index1 == index2) {
+            throw new IllegalArgumentException("Element cant swap position with itself");
+        }
+
+        Node<E> temp1 = head;
+        Node<E> temp2 = head;
+
+        for (int i = 0; i < index1; i++) {
+            temp1 = temp1.next;
+        }
+
+        for (int i = 0; i < index2; i++) {
+            temp2 = temp2.next;
+        }
+
+        E tempElement = temp1.element;
+        temp1.element = temp2.element;
+        temp2.element = tempElement;
     }
 
     public boolean exists(E element) {
@@ -172,12 +236,20 @@ public class SingleLinkedList1<E> {
        return size; 
     }
 
-    public void printList() {
-        //TODO
+    public String printList() {
+        StringBuilder sb = new StringBuilder();
+        Node<E> temp = head;
+
+        while (temp != null) {
+            sb.append(temp.element).append(" ");
+            temp = temp.next;
+        }
+        return sb.toString();
     }
 
     public void clear() {
-        //TODO
+        head = null;
+        size = 0;
     }
     
     private static class Node<E> {
