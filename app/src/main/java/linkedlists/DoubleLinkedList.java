@@ -12,7 +12,7 @@ public class DoubleLinkedList<E> {
     }
 
     public boolean isEmpty() {
-        //TODO
+        return head == null;
     }
 
     public void addFirst(E element) {
