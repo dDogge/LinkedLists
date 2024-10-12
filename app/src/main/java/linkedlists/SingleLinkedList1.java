@@ -237,6 +237,10 @@ public class SingleLinkedList1<E> {
     }
 
     public String printList() {
+        if (isEmpty()) {
+            return "List is empty";
+        }
+
         StringBuilder sb = new StringBuilder();
         Node<E> temp = head;
 
