@@ -239,7 +239,7 @@ public class SingleLinkedList2<E> {
             return true;
         } else {
             while (temp.next != head) {
-                if (temp.next.equals(element)) {
+                if (temp.next.element.equals(element)) {
                     return true;
                 }
                 temp = temp.next;
