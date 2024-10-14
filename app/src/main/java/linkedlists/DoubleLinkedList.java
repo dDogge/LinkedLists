@@ -1,6 +1,7 @@
 package linkedlists;
 
 import java.util.Comparator;
+import java.util.NoSuchElementException;
 
 public class DoubleLinkedList<E> {
     private Node<E> head;
@@ -16,55 +17,162 @@ public class DoubleLinkedList<E> {
     }
 
     public void addFirst(E element) {
-        //TODO
+        Node<E> node = new Node<E>(element, null, null);
+
+        if (isEmpty()) {
+            head = node;
+        } else {
+            node.next = head;
+            head.prev = node;
+            head = node;
+        }
+        size++;
     }
 
     public void addLast(E element) {
-        //TODO
+        if (isEmpty()) {
+            addFirst(element);
+        } else {
+            Node<E> temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            Node<E> node = new Node<E>(element, null, temp);
+            temp.next = node;
+            size++;
+        }
     }
 
     public void add(E element, int index) {
-        //TODO
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("Index out of bounds: " + index);
+        }
+
+        if (isEmpty() || index == 0) {
+            addFirst(element);
+        } else if (index == size) {
+            addLast(element);
+        } else {
+            Node<E> temp = head;
+            for (int i = 0; i < index - 1; i++) {
+                temp = temp.next;
+            }
+            Node<E> node = new Node<E>(element, temp.next, temp);
+            temp.next = node;
+
+            if (node.next != null) {
+                node.next.prev = node;
+            }
+            size++;
+        }
     }
 
     public E getFirst() {
-        //TODO
+        return head.element;
     }
 
     public E getLast() {
-        //TODO
+        Node<E> temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        return temp.element;
     }
 
     public E get(int index) {
-        //TODO            
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Index out of bounds: " + index);
+        }
+
+        Node<E> temp = head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp.element;
     }
 
     public void removeFirst() {
-        //TODO
+        if (isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
+
+        if (head.next == null) {
+            head = null;
+        } else {
+            head = head.next;
+            head.prev = null;
+        }
+        size--;
     }
 
     public void removeLast() {
-        //TODO
+        if (isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
+
+        if (head.next == null) {
+            head = null;
+        } else {
+            Node<E> temp = head;
+            while (temp.next.next != null) {
+                temp = temp.next;
+            }
+            temp.next = null;
+        }
+        size--;
     }
 
     public void remove(E element) {
-        //TODO
+        if (isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
+
+        if (exists(element) == false) {
+            throw new NoSuchElementException("Element does not exist");
+        }
+
+        if (head.element.equals(element)) {
+            if (head.next == null) {
+                head = null;
+            } else {
+                head = head.next;
+                head.prev = null;
+            }
+        } else {
+            Node<E> temp = head;
+
+            while (temp.next != null && !temp.next.element.equals(element)) {
+                temp = temp.next;
+            }
+            
+            if (temp.next != null && temp.next.element.equals(element)) {
+                Node<E> removed = temp.next;
+                temp.next = removed.next;
+
+                if (removed.next != null) {
+                    removed.next.prev = temp;
+                }
+            }
+        }
+        size--;
     }
 
     public void removeAt(int index) {
-        //TODO
+        if (isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
     }
 
     public void Sort(Comparator<E> comparator) {
-        //TODO
+        // TODO
     }
 
     public void swap(int index1, int index2) {
-        //TODO
+        // TODO
     }
 
     public boolean exists(E element) {
-        //TODO
+        // TODO
     }
 
     public int size() {
@@ -72,13 +180,13 @@ public class DoubleLinkedList<E> {
     }
 
     public String printList() {
-        //TODO
+        // TODO
     }
 
     public void clear() {
-        //TODO
+        // TODO
     }
-    
+
     private static class Node<E> {
         private E element;
         private Node<E> next;
