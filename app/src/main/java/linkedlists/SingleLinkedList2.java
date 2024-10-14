@@ -59,7 +59,7 @@ public class SingleLinkedList2<E> {
             addLast(element);
         } else {
             Node<E> temp = head;
-            for (int i = 0; i < index -1; i++) {
+            for (int i = 0; i < index - 1; i++) {
                 temp = temp.next;
             }
             Node<E> node = new Node<E>(element, temp.next);
@@ -96,8 +96,12 @@ public class SingleLinkedList2<E> {
         if (isEmpty()) {
             throw new NoSuchElementException("List is empty");
         }
-        
-        head = head.next;
+
+        if (head.next == null) {
+            head = null;
+        } else {
+            head = head.next;
+        }
         size--;
     }
 
@@ -113,7 +117,7 @@ public class SingleLinkedList2<E> {
             while (temp.next.next != head) {
                 temp = temp.next;
             }
-            temp.next = head; 
+            temp.next = head;
         }
         size--;
     }
@@ -129,15 +133,15 @@ public class SingleLinkedList2<E> {
 
         if (head.element.equals(element)) {
             if (head.next == head) {
-                head = null;  
+                head = null;
             } else {
                 Node<E> temp = head;
                 while (temp.next != head) {
                     temp = temp.next;
                 }
-    
+
                 temp.next = head.next;
-                head = head.next;  
+                head = head.next;
             }
         } else {
             Node<E> temp = head;
@@ -171,7 +175,7 @@ public class SingleLinkedList2<E> {
             for (int i = 0; i < index - 1; i++) {
                 temp = temp.next;
             }
-            
+
             temp.next = temp.next.next;
         }
         size--;
@@ -273,7 +277,7 @@ public class SingleLinkedList2<E> {
         head = null;
         size = 0;
     }
-  
+
     private static class Node<E> {
         private E element;
         private Node<E> next;

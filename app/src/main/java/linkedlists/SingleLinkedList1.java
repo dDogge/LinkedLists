@@ -45,7 +45,6 @@ public class SingleLinkedList1<E> {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Index out of bounds: " + index);
         }
-        
 
         if (isEmpty() || (index == 0)) {
             addFirst(element);
@@ -123,15 +122,15 @@ public class SingleLinkedList1<E> {
         }
 
         if (head.element.equals(element)) {
-            head = head.next; 
+            head = head.next;
         } else {
-            Node<E> temp = head; 
+            Node<E> temp = head;
 
             while (temp.next != null && !temp.next.element.equals(element)) {
                 temp = temp.next;
             }
             if (temp.next != null) {
-                temp.next = temp.next.next; 
+                temp.next = temp.next.next;
             }
         }
         size--;
@@ -152,7 +151,7 @@ public class SingleLinkedList1<E> {
             removeLast();
         } else {
             Node<E> temp = head;
-            
+
             for (int i = 0; i < index - 1; i++) {
                 temp = temp.next;
             }
@@ -162,8 +161,8 @@ public class SingleLinkedList1<E> {
         size--;
     }
 
-    //Selection sort
-    //Ineffective because of the nature of linked list
+    // Selection sort
+    // Ineffective because of the nature of linked list
     // O(n) = n³
     public void Sort(Comparator<E> comparator) {
         int n = size;
@@ -233,7 +232,7 @@ public class SingleLinkedList1<E> {
     }
 
     public int size() {
-       return size; 
+        return size;
     }
 
     public String printList() {
@@ -255,7 +254,7 @@ public class SingleLinkedList1<E> {
         head = null;
         size = 0;
     }
-    
+
     private static class Node<E> {
         private E element;
         private Node<E> next;
