@@ -161,18 +161,98 @@ public class DoubleLinkedList<E> {
         if (isEmpty()) {
             throw new NoSuchElementException("List is empty");
         }
-    }
+
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Index out of bounds: " + index);
+        }
+
+        if (index == 0) {
+            removeFirst();
+        } else if (index == size - 1) {
+            removeLast();
+        } else {
+            Node<E> temp = head;
+
+            for (int i = 0; i < index; i++) {
+                temp = temp.next;
+            }
+
+            temp.prev.next = temp.next;
+            temp.next.prev = temp.prev;
+            size--;
+        }
+    } 
 
     public void Sort(Comparator<E> comparator) {
-        // TODO
+        int n = size;
+
+        for (int i = 0; i < (n - 1); i++) {
+            int min = i;
+
+            for (int j = i + 1; j < n; j++) {
+                if (comparator.compare(get(j), get(min)) < 0) {
+                    min = j;
+                }
+            }
+
+            if (min != i) {
+                swap(i, min);
+            }
+        }
     }
 
     public void swap(int index1, int index2) {
-        // TODO
+        if (isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
+    
+        if (index1 < 0 || index1 >= size) {
+            throw new IllegalArgumentException("Index out of bounds: " + index1);
+        }
+    
+        if (index2 < 0 || index2 >= size) {
+            throw new IllegalArgumentException("Index out of bounds: " + index2);
+        }
+
+        if (index1 == index2) {
+            throw new IllegalArgumentException("Element cant swap position with itself");
+        }
+
+        Node<E> temp1 = head;
+        Node<E> temp2 = head;
+
+        for (int i = 0; i < Math.max(index1, index2); i++) {
+            if (i < index1) {
+                temp1 = temp1.next;
+            }
+            if (i < index2) {
+                temp2 = temp2.next;
+            }
+        }
+
+        E tempElement = temp1.element;
+        temp1.element = temp2.element;
+        temp2.element = tempElement;
     }
 
     public boolean exists(E element) {
-        // TODO
+        if (isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
+
+        Node<E> temp = head;
+
+        if (head.element.equals(element)) {
+            return true;
+        } else {
+            while (temp.next != null) {
+                if (temp.next.element.equals(element)) {
+                    return true;
+                }
+                temp = temp.next;
+            }
+        }
+        return false;
     }
 
     public int size() {
@@ -180,11 +260,24 @@ public class DoubleLinkedList<E> {
     }
 
     public String printList() {
-        // TODO
+        if (isEmpty()) {
+            return "List is empty";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        Node<E> temp = head;
+
+        while (temp != null) {
+            sb.append(temp.element).append(" ");
+            temp = temp.next;
+        }
+        return sb.toString();
+
     }
 
     public void clear() {
-        // TODO
+        head = null;
+        size = 0;
     }
 
     private static class Node<E> {
