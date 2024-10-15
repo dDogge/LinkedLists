@@ -157,8 +157,8 @@ public class SingleLinkedList1<E> {
             }
 
             temp.next = temp.next.next;
+            size--;
         }
-        size--;
     }
 
     // Selection sort
@@ -186,12 +186,12 @@ public class SingleLinkedList1<E> {
         if (isEmpty()) {
             throw new NoSuchElementException("List is empty");
         }
-
-        if (index1 >= size) {
+    
+        if (index1 < 0 || index1 >= size) {
             throw new IllegalArgumentException("Index out of bounds: " + index1);
         }
-
-        if (index2 >= size) {
+    
+        if (index2 < 0 || index2 >= size) {
             throw new IllegalArgumentException("Index out of bounds: " + index2);
         }
 
@@ -202,12 +202,13 @@ public class SingleLinkedList1<E> {
         Node<E> temp1 = head;
         Node<E> temp2 = head;
 
-        for (int i = 0; i < index1; i++) {
-            temp1 = temp1.next;
-        }
-
-        for (int i = 0; i < index2; i++) {
-            temp2 = temp2.next;
+        for (int i = 0; i < Math.max(index1, index2); i++) {
+            if (i < index1) {
+                temp1 = temp1.next;
+            }
+            if (i < index2) {
+                temp2 = temp2.next;
+            }
         }
 
         E tempElement = temp1.element;
