@@ -57,6 +57,13 @@ public class Vislink {
         this.status = new JPanel();
         this.listToBeChosen = new JLabel("CHOSE LIST TYPE");
         this.dataToBeChosen = new JLabel("CHOSE DATA TYPE");
+        this.elementToBeAdded = new JLabel("TYPE ELEMENT");
+        this.toBeAdded = new JTextField();
+        this.addFirst = new JButton("ADD FIRST");
+        this.addLast = new JButton("ADD LAST");
+        this.add = new JButton("ADD AT INDEX");
+        this.indexToBeAdded = new JLabel("TYPE INDEX");
+        this.addIndex = new JTextField();
 
         String[] listTypes = {
             "Single Linked List",
@@ -99,6 +106,22 @@ public class Vislink {
         dataToBeChosen.setFont(new Font("Monospaced", Font.PLAIN, 16));
         dataType.setBounds(10, 145, 150, 30);
 
+        elementToBeAdded.setBounds(350, 40, 150, 30);
+        elementToBeAdded.setForeground(Color.GREEN);
+        elementToBeAdded.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        toBeAdded.setBounds(350, 75, 150, 20);
+        addFirst.setBounds(350, 100, 150, 40);
+        addFirst.setBackground(Color.GREEN);
+        addLast.setBounds(350, 145, 150, 40);
+        addLast.setBackground(Color.GREEN);
+        indexToBeAdded.setBounds(505, 40, 150, 30);
+        indexToBeAdded.setForeground(Color.GREEN);
+        indexToBeAdded.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        addIndex.setBounds(505, 75, 150, 20);
+        add.setBounds(505, 100, 150, 40);
+        add.setBackground(Color.GREEN);
+
+
         field.setBackground(Color.BLACK);
         field.setBounds(0, 0, 1920, 760);
         field.setLayout(null);
@@ -122,6 +145,13 @@ public class Vislink {
         optionBar.add(listType);
         optionBar.add(dataToBeChosen);
         optionBar.add(dataType);
+        optionBar.add(elementToBeAdded);
+        optionBar.add(toBeAdded);
+        optionBar.add(addFirst);
+        optionBar.add(addLast);
+        optionBar.add(indexToBeAdded);
+        optionBar.add(addIndex);
+        optionBar.add(add);
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.add(field);
