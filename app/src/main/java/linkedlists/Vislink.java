@@ -64,6 +64,14 @@ public class Vislink {
         this.add = new JButton("ADD AT INDEX");
         this.indexToBeAdded = new JLabel("TYPE INDEX");
         this.addIndex = new JTextField();
+        this.elementToBeRemoved = new JLabel("TYPE ELEMENT");
+        this.toBeRemoved = new JTextField();
+        this.removeFirst = new JButton("REMOVE FIRST");
+        this.removeLast = new JButton("REMOVE LAST");
+        this.remove = new JButton("REMOVE ELEMENT");
+        this.removeAt = new JButton("REMOVE AT INDEX");
+        this.indexToBeRemoved = new JLabel("TYPE INDEX");
+        this.removeIndex = new JTextField();
 
         String[] listTypes = {
             "Single Linked List",
@@ -121,6 +129,22 @@ public class Vislink {
         add.setBounds(505, 100, 150, 40);
         add.setBackground(Color.GREEN);
 
+        elementToBeRemoved.setBounds(700, 40, 150, 30);
+        elementToBeRemoved.setForeground(Color.RED);
+        elementToBeRemoved.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        toBeRemoved.setBounds(700, 75, 150, 20);
+        remove.setBounds(700, 100, 150, 40);
+        remove.setBackground(Color.RED);
+        removeFirst.setBounds(700, 145, 150, 40);
+        removeFirst.setBackground(Color.RED);
+        indexToBeRemoved.setBounds(855, 40, 150, 30);
+        indexToBeRemoved.setForeground(Color.RED);
+        indexToBeRemoved.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        removeIndex.setBounds(855, 75, 150, 20);
+        removeAt.setBounds(855, 100, 150, 40);
+        removeAt.setBackground(Color.RED);
+        removeLast.setBounds(855, 145, 150, 40);
+        removeLast.setBackground(Color.RED);
 
         field.setBackground(Color.BLACK);
         field.setBounds(0, 0, 1920, 760);
@@ -152,6 +176,14 @@ public class Vislink {
         optionBar.add(indexToBeAdded);
         optionBar.add(addIndex);
         optionBar.add(add);
+        optionBar.add(elementToBeRemoved);
+        optionBar.add(toBeRemoved);
+        optionBar.add(remove);
+        optionBar.add(removeFirst);
+        optionBar.add(indexToBeRemoved);
+        optionBar.add(removeIndex);
+        optionBar.add(removeAt);
+        optionBar.add(removeLast);
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.add(field);
