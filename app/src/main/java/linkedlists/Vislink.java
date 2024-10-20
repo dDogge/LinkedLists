@@ -36,6 +36,10 @@ public class Vislink {
     private JLabel uitility;
     private JButton Sort;
     private JButton Swap;
+    private JLabel element1;
+    private JLabel element2;
+    private JTextField selectedElement1;
+    private JTextField selectedElement2;
     private JButton get;
     private JLabel getElemenmtLabel;
     private JTextField getElement;
@@ -72,6 +76,15 @@ public class Vislink {
         this.removeAt = new JButton("REMOVE AT INDEX");
         this.indexToBeRemoved = new JLabel("TYPE INDEX");
         this.removeIndex = new JTextField();
+        this.Sort = new JButton("SORT LIST");
+        this.Swap = new JButton("SWAP ELEMENTS");
+        this.element1 = new JLabel("TYPE ELEMENT 1");
+        this.element2 = new JLabel("TYPE ELEMENT 2");
+        this.selectedElement1 = new JTextField();
+        this.selectedElement2 = new JTextField();
+        this.get = new JButton("GET ELEMENT");
+        this.getElemenmtLabel = new JLabel("TYPE ELEMENT");
+        this.getElement = new JTextField();
 
         String[] listTypes = {
             "Single Linked List",
@@ -146,6 +159,25 @@ public class Vislink {
         removeLast.setBounds(855, 145, 150, 40);
         removeLast.setBackground(Color.RED);
 
+        element1.setBounds(1050, 40, 150, 30);
+        element1.setForeground(Color.MAGENTA);
+        element1.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        selectedElement1.setBounds(1050, 75, 150, 20);
+        element2.setBounds(1050, 100, 150, 30);
+        element2.setForeground(Color.MAGENTA);
+        element2.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        selectedElement2.setBounds(1050, 135, 150, 20);
+        Swap.setBounds(1050, 160, 150, 40);
+        Swap.setBackground(Color.MAGENTA);
+        getElemenmtLabel.setBounds(1205, 40, 150, 30);
+        getElemenmtLabel.setForeground(Color.MAGENTA);
+        getElemenmtLabel.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        getElement.setBounds(1205, 75, 150, 20);
+        get.setBounds(1205, 100, 150, 40);
+        get.setBackground(Color.MAGENTA);
+        Sort.setBounds(1205, 145, 150, 40);
+        Sort.setBackground(Color.MAGENTA);
+
         field.setBackground(Color.BLACK);
         field.setBounds(0, 0, 1920, 760);
         field.setLayout(null);
@@ -184,6 +216,15 @@ public class Vislink {
         optionBar.add(removeIndex);
         optionBar.add(removeAt);
         optionBar.add(removeLast);
+        optionBar.add(element1);
+        optionBar.add(selectedElement1);
+        optionBar.add(element2);
+        optionBar.add(selectedElement2);
+        optionBar.add(Swap);
+        optionBar.add(getElemenmtLabel);
+        optionBar.add(getElement);
+        optionBar.add(get);
+        optionBar.add(Sort);
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.add(field);
