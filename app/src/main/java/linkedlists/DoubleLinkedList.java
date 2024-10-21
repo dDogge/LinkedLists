@@ -1,5 +1,6 @@
 package linkedlists;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
@@ -261,7 +262,7 @@ public class DoubleLinkedList<E> {
 
     public String printList() {
         if (isEmpty()) {
-            return "List is empty";
+            throw new NoSuchElementException("List is empty");
         }
 
         StringBuilder sb = new StringBuilder();
@@ -272,12 +273,26 @@ public class DoubleLinkedList<E> {
             temp = temp.next;
         }
         return sb.toString();
-
     }
 
     public void clear() {
         head = null;
         size = 0;
+    }
+
+    public ArrayList<E> getList() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
+
+        ArrayList<E> list = new ArrayList<>();
+        Node<E> temp = head;
+
+        while (temp != null) {
+            list.add(temp.element);
+            temp = temp.next;
+        }
+        return list;
     }
 
     private static class Node<E> {

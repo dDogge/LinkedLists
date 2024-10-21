@@ -1,5 +1,6 @@
 package linkedlists;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
@@ -277,6 +278,23 @@ public class SingleLinkedList2<E> {
     public void clear() {
         head = null;
         size = 0;
+    }
+
+    public ArrayList<E> getList() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("List is empty");
+        }
+
+        ArrayList<E> list = new ArrayList<>();
+        Node<E> temp = head;
+        list.add(temp.element);
+        temp = temp.next;
+
+        while (temp != head) {
+            list.add(temp.element);
+            temp = temp.next;
+        }
+        return list;
     }
 
     private static class Node<E> {
