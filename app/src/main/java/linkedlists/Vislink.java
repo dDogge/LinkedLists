@@ -1,6 +1,8 @@
 package linkedlists;
 
 import java.awt.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 public class Vislink {
@@ -48,9 +50,13 @@ public class Vislink {
     private JLabel size;
     private JPanel status;
 
+    private Object linkedList;
+    private String currentDataType;
+
+    @SuppressWarnings("unchecked")
     public Vislink() {
         this.f = new JFrame("VISLINK");
-        this.field = new JPanel();
+        this.field = new ListPanel();
         this.optionBar = new JPanel();
         this.setup = new JLabel("SETUP");
         this.addition = new JLabel("ADDITION");
@@ -87,15 +93,15 @@ public class Vislink {
         this.getElement = new JTextField();
 
         String[] listTypes = {
-            "Single Linked List",
-            "Cirkular Linked List",
-            "Double Linked List"
+                "Single Linked List",
+                "Cirkular Linked List",
+                "Double Linked List"
         };
         this.listType = new JComboBox<>(listTypes);
 
         String[] dataTypes = {
-            "Integer", "Double",
-            "Char", "String" 
+                "Integer", "Double",
+                "Char", "String"
         };
         this.dataType = new JComboBox<>(dataTypes);
 
@@ -120,19 +126,92 @@ public class Vislink {
 
         listToBeChosen.setBounds(10, 40, 150, 30);
         listToBeChosen.setForeground(Color.WHITE);
-        listToBeChosen.setFont(new Font("Monospaced", Font.PLAIN, 16));        
+        listToBeChosen.setFont(new Font("Monospaced", Font.PLAIN, 16));
         listType.setBounds(10, 75, 150, 30);
         dataToBeChosen.setBounds(10, 110, 150, 30);
         dataToBeChosen.setForeground(Color.WHITE);
         dataToBeChosen.setFont(new Font("Monospaced", Font.PLAIN, 16));
         dataType.setBounds(10, 145, 150, 30);
 
+        listType.addActionListener(e -> createList());
+        dataType.addActionListener(e -> createList());
+
         elementToBeAdded.setBounds(350, 40, 150, 30);
         elementToBeAdded.setForeground(Color.GREEN);
         elementToBeAdded.setFont(new Font("Monospaced", Font.PLAIN, 16));
         toBeAdded.setBounds(350, 75, 150, 20);
+
         addFirst.setBounds(350, 100, 150, 40);
         addFirst.setBackground(Color.GREEN);
+        addFirst.addActionListener(e -> {
+            String input = toBeAdded.getText();
+
+            if (input.isEmpty()) {
+                JOptionPane.showMessageDialog(f, "Input is empty.");
+                return;
+            }
+
+            if (linkedList == null) {
+                JOptionPane.showMessageDialog(f, "Please select a list type and data type.");
+                return;
+            }
+
+            try {
+                switch (currentDataType) {
+                    case "Integer":
+                        Integer intValue = Integer.parseInt(input);
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Integer>) linkedList).addFirst(intValue);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Integer>) linkedList).addFirst(intValue);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Integer>) linkedList).addFirst(intValue);
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<String>) linkedList).addFirst(input);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<String>) linkedList).addFirst(input);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<String>) linkedList).addFirst(input);
+                        }
+                        break;
+                    case "Double":
+                        Double doubleValue = Double.parseDouble(input);
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Double>) linkedList).addFirst(doubleValue);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Double>) linkedList).addFirst(doubleValue);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Double>) linkedList).addFirst(doubleValue);
+                        }
+                        break;
+                    case "Char":
+                        if (input.length() == 1) {
+                            char charValue = input.charAt(0);
+                            if (linkedList instanceof SingleLinkedList1) {
+                                ((SingleLinkedList1<Character>) linkedList).addFirst(charValue);
+                            } else if (linkedList instanceof SingleLinkedList2) {
+                                ((SingleLinkedList2<Character>) linkedList).addFirst(charValue);
+                            } else if (linkedList instanceof DoubleLinkedList) {
+                                ((DoubleLinkedList<Character>) linkedList).addFirst(charValue);
+                            }
+                        } else {
+                            throw new IllegalArgumentException("Input is not a valid character.");
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+                visualizeList();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(f, "Input does not match the selected data type.");
+            } catch (ClassCastException ex) {
+                JOptionPane.showMessageDialog(f, "List type mismatch.");
+            }
+        });
+
         addLast.setBounds(350, 145, 150, 40);
         addLast.setBackground(Color.GREEN);
         indexToBeAdded.setBounds(505, 40, 150, 30);
@@ -186,8 +265,8 @@ public class Vislink {
         optionBar.setBounds(0, 760, 1920, 200);
         optionBar.setLayout(null);
 
-        status.setBackground(Color.BLACK);  
-        status.setBounds(1510, 40, 400, 150); 
+        status.setBackground(Color.BLACK);
+        status.setBounds(1510, 40, 400, 150);
         status.setLayout(null);
 
         optionBar.add(status);
@@ -234,5 +313,132 @@ public class Vislink {
         f.setLocationRelativeTo(null);
         f.setVisible(true);
         f.setResizable(false);
+    }
+
+    public void createList() {
+        String chosenListType = (String) listType.getSelectedItem();
+        currentDataType = (String) dataType.getSelectedItem();
+
+        switch (chosenListType) {
+            case "Single Linked List":
+                if (currentDataType.equals("Integer")) {
+                    linkedList = new SingleLinkedList1<Integer>();
+                } else if (currentDataType.equals("String")) {
+                    linkedList = new SingleLinkedList1<String>();
+                } else if (currentDataType.equals("Double")) {
+                    linkedList = new SingleLinkedList1<Double>();
+                } else if (currentDataType.equals("Char")) {
+                    linkedList = new SingleLinkedList1<Character>();
+                }
+                break;
+            case "Cirkular Linked List":
+                if (currentDataType.equals("Integer")) {
+                    linkedList = new SingleLinkedList2<Integer>();
+                } else if (currentDataType.equals("String")) {
+                    linkedList = new SingleLinkedList2<String>();
+                } else if (currentDataType.equals("Double")) {
+                    linkedList = new SingleLinkedList2<Double>();
+                } else if (currentDataType.equals("Char")) {
+                    linkedList = new SingleLinkedList2<Character>();
+                }
+                break;
+            case "Double Linked List":
+                if (currentDataType.equals("Integer")) {
+                    linkedList = new DoubleLinkedList<Integer>();
+                } else if (currentDataType.equals("String")) {
+                    linkedList = new DoubleLinkedList<String>();
+                } else if (currentDataType.equals("Double")) {
+                    linkedList = new DoubleLinkedList<Double>();
+                } else if (currentDataType.equals("Char")) {
+                    linkedList = new DoubleLinkedList<Character>();
+                }
+                break;
+            default:
+                JOptionPane.showMessageDialog(f, "Invalid list type selected.");
+                break;
+        }
+    }
+
+    public void visualizeList() {
+        ArrayList<?> listData = new ArrayList<>();
+
+        if (linkedList instanceof SingleLinkedList1) {
+            listData = ((SingleLinkedList1<?>) linkedList).getList();
+        } else if (linkedList instanceof SingleLinkedList2) {
+            listData = ((SingleLinkedList2<?>) linkedList).getList();
+        } else if (linkedList instanceof DoubleLinkedList) {
+            listData = ((DoubleLinkedList<?>) linkedList).getList();
+        }
+
+        ((ListPanel) field).setListData(listData);
+    }
+
+    private class ListPanel extends JPanel {
+        private ArrayList<?> listData;
+
+        public void setListData(ArrayList<?> listData) {
+            this.listData = listData;
+            repaint();
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+
+            if (listData == null || listData.isEmpty()) {
+                return; 
+            }
+
+            int x = 50; 
+            int y = 355;
+            int nodeDiameter = 50; 
+            int spacing = 80;
+
+            g.setColor(Color.GREEN); 
+            FontMetrics fm = g.getFontMetrics();
+
+            for (int i = 0; i < listData.size(); i++) {
+                g.drawOval(x, y, nodeDiameter, nodeDiameter);
+
+                String nodeValue = listData.get(i).toString();
+                int textWidth = fm.stringWidth(nodeValue);
+                int textHeight = fm.getAscent();
+                g.drawString(nodeValue, x + (nodeDiameter - textWidth) / 2, y + (nodeDiameter + textHeight) / 2 - 5);
+
+                if (i < listData.size() - 1) {
+                    int arrowXStart = x + nodeDiameter;
+                    int arrowXEnd = x + spacing; 
+                    int arrowY = y + nodeDiameter / 2;
+
+                    g.drawLine(arrowXStart, arrowY, arrowXEnd, arrowY);
+                    g.drawLine(arrowXEnd - 10, arrowY - 5, arrowXEnd, arrowY); 
+                    g.drawLine(arrowXEnd - 10, arrowY + 5, arrowXEnd, arrowY); 
+                }
+
+                if (linkedList instanceof DoubleLinkedList && i > 0) {
+                    int arrowXEnd = x;  
+                    int arrowXStart = x - spacing;  
+                    int arrowY = y + nodeDiameter / 2 + 10;  
+        
+                    g.drawLine(arrowXStart + nodeDiameter, arrowY, arrowXEnd, arrowY);
+                    g.drawLine(arrowXStart + nodeDiameter + 10, arrowY - 5, arrowXStart + nodeDiameter, arrowY); 
+                    g.drawLine(arrowXStart + nodeDiameter + 10, arrowY + 5, arrowXStart + nodeDiameter, arrowY); 
+                }
+                x += spacing;
+            }
+
+            if (linkedList instanceof SingleLinkedList2) {
+                int lastX = x - spacing;  
+                int firstX = 50; 
+                int lastYBottom = y + nodeDiameter; 
+                int firstYBottom = y + nodeDiameter;  
+        
+                g.drawLine(lastX + nodeDiameter / 2, lastYBottom, lastX + nodeDiameter / 2, lastYBottom + 50); 
+                g.drawLine(lastX + nodeDiameter / 2, lastYBottom + 50, firstX + nodeDiameter / 2, firstYBottom + 50); 
+                g.drawLine(firstX + nodeDiameter / 2, firstYBottom + 50, firstX + nodeDiameter / 2, firstYBottom); 
+                g.drawLine(firstX + nodeDiameter / 2 - 5, firstYBottom + 10, firstX + nodeDiameter / 2, firstYBottom); 
+                g.drawLine(firstX + nodeDiameter / 2 + 5, firstYBottom + 10, firstX + nodeDiameter / 2, firstYBottom);  
+            }
+        }
     }
 }
