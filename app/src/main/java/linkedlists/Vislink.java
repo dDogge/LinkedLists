@@ -2,6 +2,7 @@ package linkedlists;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import javax.swing.*;
 
@@ -324,6 +325,57 @@ public class Vislink {
         get.setBackground(Color.MAGENTA);
         Sort.setBounds(1205, 145, 150, 40);
         Sort.setBackground(Color.MAGENTA);
+        Sort.addActionListener(e -> {
+            if (linkedList == null) {
+                JOptionPane.showMessageDialog(f, "Please add something to the list");
+                return;
+            }
+            Comparator<Integer> intComp = Integer::compare;
+            Comparator<String> stringComp = String::compareTo;
+            Comparator<Double> doubleComp = Double::compare;
+            Comparator<Character> charComp = Character::compareTo;
+
+            switch (currentDataType) {
+                case "Integer":
+                    if (linkedList instanceof SingleLinkedList1) {
+                        ((SingleLinkedList1<Integer>) linkedList).Sort(intComp);
+                    } else if (linkedList instanceof SingleLinkedList2) {
+                        ((SingleLinkedList2<Integer>) linkedList).Sort(intComp);
+                    } else if (linkedList instanceof DoubleLinkedList) {
+                        ((DoubleLinkedList<Integer>) linkedList).Sort(intComp);
+                    }
+                    break;
+                case "String":
+                    if (linkedList instanceof SingleLinkedList1) {
+                        ((SingleLinkedList1<String>) linkedList).Sort(stringComp);
+                    } else if (linkedList instanceof SingleLinkedList2) {
+                        ((SingleLinkedList2<String>) linkedList).Sort(stringComp);
+                    } else if (linkedList instanceof DoubleLinkedList) {
+                        ((DoubleLinkedList<String>) linkedList).Sort(stringComp);
+                    }
+                    break;
+                case "Double":
+                    if (linkedList instanceof SingleLinkedList1) {
+                        ((SingleLinkedList1<Double>) linkedList).Sort(doubleComp);
+                    } else if (linkedList instanceof SingleLinkedList2) {
+                        ((SingleLinkedList2<Double>) linkedList).Sort(doubleComp);
+                    } else if (linkedList instanceof DoubleLinkedList) {
+                        ((DoubleLinkedList<Double>) linkedList).Sort(doubleComp);
+                    }
+                    break;
+                case "Char":
+                    if (linkedList instanceof SingleLinkedList1) {
+                        ((SingleLinkedList1<Character>) linkedList).Sort(charComp);
+                    } else if (linkedList instanceof SingleLinkedList2) {
+                        ((SingleLinkedList2<Character>) linkedList).Sort(charComp);
+                    } else if (linkedList instanceof DoubleLinkedList) {
+                        ((DoubleLinkedList<Character>) linkedList).Sort(charComp);
+                    }
+                    break;
+                default:
+            }
+            visualizeList();
+        });
 
         field.setBackground(Color.BLACK);
         field.setBounds(0, 0, 1920, 760);
