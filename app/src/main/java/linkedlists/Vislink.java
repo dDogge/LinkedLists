@@ -289,6 +289,81 @@ public class Vislink {
         addIndex.setBounds(505, 75, 150, 20);
         add.setBounds(505, 100, 150, 40);
         add.setBackground(Color.GREEN);
+        add.addActionListener(e -> {
+            String input1 = toBeAdded.getText();
+            String input2 = addIndex.getText();
+            Integer index = Integer.parseInt(input2);
+
+            if (input1.isEmpty()) {
+                JOptionPane.showMessageDialog(f, "Input is empty.");
+                return;
+            }
+
+            if (input2.isEmpty()) {
+                JOptionPane.showMessageDialog(f, "Index is empty.");
+                return;
+            }
+
+            if (linkedList == null) {
+                JOptionPane.showMessageDialog(f, "Please select a list type and data type.");
+                return;
+            }
+
+            try {
+                switch (currentDataType) {
+                    case "Integer":
+                        Integer intValue = Integer.parseInt(input1);
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Integer>) linkedList).add(intValue, index);;
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Integer>) linkedList).add(intValue, index);;
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Integer>) linkedList).add(intValue, index);;
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<String>) linkedList).add(input1, index);;
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<String>) linkedList).add(input1, index);;
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<String>) linkedList).add(input1, index);;
+                        }
+                        break;
+                    case "Double":
+                        Double doubleValue = Double.parseDouble(input1);
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Double>) linkedList).add(doubleValue, index);;
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Double>) linkedList).add(doubleValue, index);;
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Double>) linkedList).add(doubleValue, index);;
+                        }
+                        break;
+                    case "Char":
+                        if (input1.length() == 1) {
+                            char charValue = input1.charAt(0);
+                            if (linkedList instanceof SingleLinkedList1) {
+                                ((SingleLinkedList1<Character>) linkedList).add(charValue, index);
+                            } else if (linkedList instanceof SingleLinkedList2) {
+                                ((SingleLinkedList2<Character>) linkedList).add(charValue, index);
+                            } else if (linkedList instanceof DoubleLinkedList) {
+                                ((DoubleLinkedList<Character>) linkedList).add(charValue, index);
+                            }
+                        } else {
+                            throw new IllegalArgumentException("Input is not a valid character.");
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+                visualizeList();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(f, "Input does not match the selected data type.");
+            } catch (ClassCastException ex) {
+                JOptionPane.showMessageDialog(f, "List type mismatch.");
+            }
+        });
 
         elementToBeRemoved.setBounds(700, 40, 150, 30);
         elementToBeRemoved.setForeground(Color.RED);
