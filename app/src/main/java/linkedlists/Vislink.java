@@ -133,7 +133,6 @@ public class Vislink {
         dataToBeChosen.setForeground(Color.WHITE);
         dataToBeChosen.setFont(new Font("Monospaced", Font.PLAIN, 16));
         dataType.setBounds(10, 145, 150, 30);
-
         listType.addActionListener(e -> createList());
         dataType.addActionListener(e -> createList());
 
@@ -141,7 +140,6 @@ public class Vislink {
         elementToBeAdded.setForeground(Color.GREEN);
         elementToBeAdded.setFont(new Font("Monospaced", Font.PLAIN, 16));
         toBeAdded.setBounds(350, 75, 150, 20);
-
         addFirst.setBounds(350, 100, 150, 40);
         addFirst.setBackground(Color.GREEN);
         addFirst.addActionListener(e -> {
@@ -212,7 +210,6 @@ public class Vislink {
                 JOptionPane.showMessageDialog(f, "List type mismatch.");
             }
         });
-
         addLast.setBounds(350, 145, 150, 40);
         addLast.setBackground(Color.GREEN);
         addLast.addActionListener(e -> {
@@ -373,6 +370,53 @@ public class Vislink {
         remove.setBackground(Color.RED);
         removeFirst.setBounds(700, 145, 150, 40);
         removeFirst.setBackground(Color.RED);
+        removeFirst.addActionListener(e -> {
+            try {
+                switch (currentDataType) {
+                    case "Integer":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Integer>) linkedList).removeFirst();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Integer>) linkedList).removeFirst();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Integer>) linkedList).removeFirst();
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<String>) linkedList).removeFirst();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<String>) linkedList).removeFirst();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<String>) linkedList).removeFirst();
+                        }
+                        break;
+                    case "Double":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Double>) linkedList).removeFirst();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Double>) linkedList).removeFirst();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Double>) linkedList).removeFirst();
+                        }
+                        break;
+                    case "Char":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Character>) linkedList).removeFirst();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Character>) linkedList).removeFirst();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Character>) linkedList).removeFirst();
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+                visualizeList();
+            } catch (NumberFormatException ex) {
+                ex.printStackTrace();
+            } 
+        });
         indexToBeRemoved.setBounds(855, 40, 150, 30);
         indexToBeRemoved.setForeground(Color.RED);
         indexToBeRemoved.setFont(new Font("Monospaced", Font.PLAIN, 16));
