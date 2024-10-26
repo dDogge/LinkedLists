@@ -425,6 +425,53 @@ public class Vislink {
         removeAt.setBackground(Color.RED);
         removeLast.setBounds(855, 145, 150, 40);
         removeLast.setBackground(Color.RED);
+        removeLast.addActionListener(e -> {
+            try {
+                switch (currentDataType) {
+                    case "Integer":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Integer>) linkedList).removeLast();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Integer>) linkedList).removeLast();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Integer>) linkedList).removeLast();
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<String>) linkedList).removeLast();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<String>) linkedList).removeLast();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<String>) linkedList).removeLast();
+                        }
+                        break;
+                    case "Double":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Double>) linkedList).removeLast();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Double>) linkedList).removeLast();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Double>) linkedList).removeLast();
+                        }
+                        break;
+                    case "Char":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Character>) linkedList).removeLast();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Character>) linkedList).removeLast();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Character>) linkedList).removeLast();
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+                visualizeList();
+            } catch (NumberFormatException ex) {
+                ex.printStackTrace();
+            } 
+        });
 
         element1.setBounds(1050, 40, 150, 30);
         element1.setForeground(Color.MAGENTA);
