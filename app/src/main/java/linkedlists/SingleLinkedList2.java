@@ -101,7 +101,13 @@ public class SingleLinkedList2<E> {
         if (head.next == null) {
             head = null;
         } else {
+            Node<E> temp = head;
+            while (temp.next != head) {
+                temp = temp.next;
+            }
+
             head = head.next;
+            temp.next = head;
         }
         size--;
     }
