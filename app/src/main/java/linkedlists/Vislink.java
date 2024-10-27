@@ -368,6 +368,130 @@ public class Vislink {
         toBeRemoved.setBounds(700, 75, 150, 20);
         remove.setBounds(700, 100, 150, 40);
         remove.setBackground(Color.RED);
+        remove.addActionListener(e -> {
+            String input = toBeRemoved.getText();
+        
+            if (input.isEmpty()) {
+                JOptionPane.showMessageDialog(f, "Input is empty.");
+                return;
+            }
+        
+            if (linkedList == null) {
+                JOptionPane.showMessageDialog(f, "Please select a list type and data type.");
+                return;
+            }
+        
+            boolean elementExists = false;  // Variabel för att hålla koll på om elementet finns
+        
+            try {
+                switch (currentDataType) {
+                    case "Integer":
+                        Integer intValue = Integer.parseInt(input);
+                        if (linkedList instanceof SingleLinkedList1) {
+                            elementExists = ((SingleLinkedList1<Integer>) linkedList).exists(intValue);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            elementExists = ((SingleLinkedList2<Integer>) linkedList).exists(intValue);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            elementExists = ((DoubleLinkedList<Integer>) linkedList).exists(intValue);
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            elementExists = ((SingleLinkedList1<String>) linkedList).exists(input);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            elementExists = ((SingleLinkedList2<String>) linkedList).exists(input);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            elementExists = ((DoubleLinkedList<String>) linkedList).exists(input);
+                        }
+                        break;
+                    case "Double":
+                        Double doubleValue = Double.parseDouble(input);
+                        if (linkedList instanceof SingleLinkedList1) {
+                            elementExists = ((SingleLinkedList1<Double>) linkedList).exists(doubleValue);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            elementExists = ((SingleLinkedList2<Double>) linkedList).exists(doubleValue);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            elementExists = ((DoubleLinkedList<Double>) linkedList).exists(doubleValue);
+                        }
+                        break;
+                    case "Char":
+                        if (input.length() == 1) {
+                            char charValue = input.charAt(0);
+                            if (linkedList instanceof SingleLinkedList1) {
+                                elementExists = ((SingleLinkedList1<Character>) linkedList).exists(charValue);
+                            } else if (linkedList instanceof SingleLinkedList2) {
+                                elementExists = ((SingleLinkedList2<Character>) linkedList).exists(charValue);
+                            } else if (linkedList instanceof DoubleLinkedList) {
+                                elementExists = ((DoubleLinkedList<Character>) linkedList).exists(charValue);
+                            }
+                        } else {
+                            throw new IllegalArgumentException("Input is not a valid character.");
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+        
+                if (!elementExists) {
+                    JOptionPane.showMessageDialog(f, "That element is not present.");
+                    return; 
+                }
+        
+                switch (currentDataType) {
+                    case "Integer":
+                        Integer intValue = Integer.parseInt(input);
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Integer>) linkedList).remove(intValue);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Integer>) linkedList).remove(intValue);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Integer>) linkedList).remove(intValue);
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<String>) linkedList).remove(input);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<String>) linkedList).remove(input);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<String>) linkedList).remove(input);
+                        }
+                        break;
+                    case "Double":
+                        Double doubleValue = Double.parseDouble(input);
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Double>) linkedList).remove(doubleValue);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Double>) linkedList).remove(doubleValue);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Double>) linkedList).remove(doubleValue);
+                        }
+                        break;
+                    case "Char":
+                        if (input.length() == 1) {
+                            char charValue = input.charAt(0);
+                            if (linkedList instanceof SingleLinkedList1) {
+                                ((SingleLinkedList1<Character>) linkedList).remove(charValue);
+                            } else if (linkedList instanceof SingleLinkedList2) {
+                                ((SingleLinkedList2<Character>) linkedList).remove(charValue);
+                            } else if (linkedList instanceof DoubleLinkedList) {
+                                ((DoubleLinkedList<Character>) linkedList).remove(charValue);
+                            }
+                        } else {
+                            throw new IllegalArgumentException("Input is not a valid character.");
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+        
+                visualizeList();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(f, "Input does not match the selected data type.");
+            } catch (ClassCastException ex) {
+                JOptionPane.showMessageDialog(f, "List type mismatch.");
+            }
+        });
         removeFirst.setBounds(700, 145, 150, 40);
         removeFirst.setBackground(Color.RED);
         removeFirst.addActionListener(e -> {
