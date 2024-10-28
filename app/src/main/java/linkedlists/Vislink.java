@@ -290,6 +290,7 @@ public class Vislink {
             String input1 = toBeAdded.getText();
             String input2 = addIndex.getText();
             Integer index = Integer.parseInt(input2);
+            int listSize = 0;
 
             if (input1.isEmpty()) {
                 JOptionPane.showMessageDialog(f, "Input is empty.");
@@ -307,6 +308,57 @@ public class Vislink {
             }
 
             try {
+
+                switch (currentDataType) {
+                    case "Integer":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<Integer>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<Integer>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<Integer>) linkedList).size();
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<String>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<String>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<String>) linkedList).size();
+                        }
+                        break;
+                    case "Double":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<Double>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<Double>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<Double>) linkedList).size();
+                        }
+                        break;
+                    case "Char":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<Character>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<Character>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<Character>) linkedList).size();
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+
+                if (index < 0) {
+                    JOptionPane.showMessageDialog(f, "This list only supports indexes equal to or above: 0");
+                    return; 
+                }
+
+                if (index > listSize) {
+                    JOptionPane.showMessageDialog(f, "Cannot add an element at index " + index + "! List size must be increased!");
+                }
+
                 switch (currentDataType) {
                     case "Integer":
                         Integer intValue = Integer.parseInt(input1);
@@ -547,6 +599,115 @@ public class Vislink {
         removeIndex.setBounds(855, 75, 150, 20);
         removeAt.setBounds(855, 100, 150, 40);
         removeAt.setBackground(Color.RED);
+        removeAt.addActionListener(e -> {
+            String input1 = removeIndex.getText();
+            Integer index = Integer.parseInt(input1);
+            int listSize = 0;
+
+            if (input1.isEmpty()) {
+                JOptionPane.showMessageDialog(f, "Input is empty.");
+                return;
+            }
+
+            if (linkedList == null) {
+                JOptionPane.showMessageDialog(f, "Please select a list type and data type.");
+                return;
+            }
+
+            try {
+                switch (currentDataType) {
+                    case "Integer":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<Integer>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<Integer>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<Integer>) linkedList).size();
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<String>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<String>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<String>) linkedList).size();
+                        }
+                        break;
+                    case "Double":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<Double>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<Double>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<Double>) linkedList).size();
+                        }
+                        break;
+                    case "Char":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<Character>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<Character>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<Character>) linkedList).size();
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+
+                if (index < 0 || index >= listSize) {
+                    JOptionPane.showMessageDialog(f, "No element present at index: " + index);
+                    return; 
+                }
+            
+                switch (currentDataType) {
+                    case "Integer":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Integer>) linkedList).removeAt(index);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Integer>) linkedList).removeAt(index);
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<String>) linkedList).removeAt(index);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<String>) linkedList).removeAt(index);;
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<String>) linkedList).removeAt(index);
+                        }
+                        break;
+                    case "Double":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Double>) linkedList).removeAt(index);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Double>) linkedList).removeAt(index);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Double>) linkedList).removeAt(index);
+                        }
+                        break;
+                    case "Char":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Character>) linkedList).removeAt(index);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Character>) linkedList).removeAt(index);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Character>) linkedList).removeAt(index);
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+                visualizeList();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(f, "Input does not match the selected data type.");
+            } catch (ClassCastException ex) {
+                JOptionPane.showMessageDialog(f, "List type mismatch.");
+            }
+        });
         removeLast.setBounds(855, 145, 150, 40);
         removeLast.setBackground(Color.RED);
         removeLast.addActionListener(e -> {
