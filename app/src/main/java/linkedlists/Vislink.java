@@ -85,8 +85,8 @@ public class Vislink {
         this.removeIndex = new JTextField();
         this.Sort = new JButton("SORT LIST");
         this.Swap = new JButton("SWAP ELEMENTS");
-        this.element1 = new JLabel("TYPE ELEMENT 1");
-        this.element2 = new JLabel("TYPE ELEMENT 2");
+        this.element1 = new JLabel("TYPE INDEX 1");
+        this.element2 = new JLabel("TYPE INDEX 2");
         this.selectedElement1 = new JTextField();
         this.selectedElement2 = new JTextField();
         this.get = new JButton("GET ELEMENT");
@@ -352,41 +352,51 @@ public class Vislink {
 
                 if (index < 0) {
                     JOptionPane.showMessageDialog(f, "This list only supports indexes equal to or above: 0");
-                    return; 
+                    return;
                 }
 
                 if (index > listSize) {
-                    JOptionPane.showMessageDialog(f, "Cannot add an element at index " + index + "! List size must be increased!");
+                    JOptionPane.showMessageDialog(f,
+                            "Cannot add an element at index " + index + "! List size must be increased!");
                 }
 
                 switch (currentDataType) {
                     case "Integer":
                         Integer intValue = Integer.parseInt(input1);
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<Integer>) linkedList).add(intValue, index);;
+                            ((SingleLinkedList1<Integer>) linkedList).add(intValue, index);
+                            ;
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<Integer>) linkedList).add(intValue, index);;
+                            ((SingleLinkedList2<Integer>) linkedList).add(intValue, index);
+                            ;
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<Integer>) linkedList).add(intValue, index);;
+                            ((DoubleLinkedList<Integer>) linkedList).add(intValue, index);
+                            ;
                         }
                         break;
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<String>) linkedList).add(input1, index);;
+                            ((SingleLinkedList1<String>) linkedList).add(input1, index);
+                            ;
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<String>) linkedList).add(input1, index);;
+                            ((SingleLinkedList2<String>) linkedList).add(input1, index);
+                            ;
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<String>) linkedList).add(input1, index);;
+                            ((DoubleLinkedList<String>) linkedList).add(input1, index);
+                            ;
                         }
                         break;
                     case "Double":
                         Double doubleValue = Double.parseDouble(input1);
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<Double>) linkedList).add(doubleValue, index);;
+                            ((SingleLinkedList1<Double>) linkedList).add(doubleValue, index);
+                            ;
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<Double>) linkedList).add(doubleValue, index);;
+                            ((SingleLinkedList2<Double>) linkedList).add(doubleValue, index);
+                            ;
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<Double>) linkedList).add(doubleValue, index);;
+                            ((DoubleLinkedList<Double>) linkedList).add(doubleValue, index);
+                            ;
                         }
                         break;
                     case "Char":
@@ -422,19 +432,19 @@ public class Vislink {
         remove.setBackground(Color.RED);
         remove.addActionListener(e -> {
             String input = toBeRemoved.getText();
-        
+
             if (input.isEmpty()) {
                 JOptionPane.showMessageDialog(f, "Input is empty.");
                 return;
             }
-        
+
             if (linkedList == null) {
                 JOptionPane.showMessageDialog(f, "Please select a list type and data type.");
                 return;
             }
-        
-            boolean elementExists = false;  // Variabel för att hålla koll på om elementet finns
-        
+
+            boolean elementExists = false; // Variabel för att hålla koll på om elementet finns
+
             try {
                 switch (currentDataType) {
                     case "Integer":
@@ -483,12 +493,12 @@ public class Vislink {
                     default:
                         throw new IllegalArgumentException("Unsupported data type.");
                 }
-        
+
                 if (!elementExists) {
                     JOptionPane.showMessageDialog(f, "That element is not present.");
-                    return; 
+                    return;
                 }
-        
+
                 switch (currentDataType) {
                     case "Integer":
                         Integer intValue = Integer.parseInt(input);
@@ -536,7 +546,7 @@ public class Vislink {
                     default:
                         throw new IllegalArgumentException("Unsupported data type.");
                 }
-        
+
                 visualizeList();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(f, "Input does not match the selected data type.");
@@ -591,7 +601,7 @@ public class Vislink {
                 visualizeList();
             } catch (NumberFormatException ex) {
                 ex.printStackTrace();
-            } 
+            }
         });
         indexToBeRemoved.setBounds(855, 40, 150, 30);
         indexToBeRemoved.setForeground(Color.RED);
@@ -658,9 +668,9 @@ public class Vislink {
 
                 if (index < 0 || index >= listSize) {
                     JOptionPane.showMessageDialog(f, "No element present at index: " + index);
-                    return; 
+                    return;
                 }
-            
+
                 switch (currentDataType) {
                     case "Integer":
                         if (linkedList instanceof SingleLinkedList1) {
@@ -675,7 +685,8 @@ public class Vislink {
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<String>) linkedList).removeAt(index);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<String>) linkedList).removeAt(index);;
+                            ((SingleLinkedList2<String>) linkedList).removeAt(index);
+                            ;
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<String>) linkedList).removeAt(index);
                         }
@@ -755,7 +766,7 @@ public class Vislink {
                 visualizeList();
             } catch (NumberFormatException ex) {
                 ex.printStackTrace();
-            } 
+            }
         });
 
         element1.setBounds(1050, 40, 150, 30);
@@ -829,7 +840,7 @@ public class Vislink {
 
                 if (index2 < 0 || index2 < 0) {
                     JOptionPane.showMessageDialog(f, "One of the selected indexes is out of bounds");
-                    return; 
+                    return;
                 }
 
                 if (index1 >= listSize || index2 >= listSize) {
@@ -1072,15 +1083,15 @@ public class Vislink {
             super.paintComponent(g);
 
             if (listData == null || listData.isEmpty()) {
-                return; 
+                return;
             }
 
-            int x = 50; 
+            int x = 50;
             int y = 355;
-            int nodeDiameter = 50; 
+            int nodeDiameter = 50;
             int spacing = 80;
 
-            g.setColor(Color.GREEN); 
+            g.setColor(Color.GREEN);
             FontMetrics fm = g.getFontMetrics();
 
             for (int i = 0; i < listData.size(); i++) {
@@ -1093,37 +1104,37 @@ public class Vislink {
 
                 if (i < listData.size() - 1) {
                     int arrowXStart = x + nodeDiameter;
-                    int arrowXEnd = x + spacing; 
+                    int arrowXEnd = x + spacing;
                     int arrowY = y + nodeDiameter / 2;
 
                     g.drawLine(arrowXStart, arrowY, arrowXEnd, arrowY);
-                    g.drawLine(arrowXEnd - 10, arrowY - 5, arrowXEnd, arrowY); 
-                    g.drawLine(arrowXEnd - 10, arrowY + 5, arrowXEnd, arrowY); 
+                    g.drawLine(arrowXEnd - 10, arrowY - 5, arrowXEnd, arrowY);
+                    g.drawLine(arrowXEnd - 10, arrowY + 5, arrowXEnd, arrowY);
                 }
 
                 if (linkedList instanceof DoubleLinkedList && i > 0) {
-                    int arrowXEnd = x;  
-                    int arrowXStart = x - spacing;  
-                    int arrowY = y + nodeDiameter / 2 + 10;  
-        
+                    int arrowXEnd = x;
+                    int arrowXStart = x - spacing;
+                    int arrowY = y + nodeDiameter / 2 + 10;
+
                     g.drawLine(arrowXStart + nodeDiameter, arrowY, arrowXEnd, arrowY);
-                    g.drawLine(arrowXStart + nodeDiameter + 10, arrowY - 5, arrowXStart + nodeDiameter, arrowY); 
-                    g.drawLine(arrowXStart + nodeDiameter + 10, arrowY + 5, arrowXStart + nodeDiameter, arrowY); 
+                    g.drawLine(arrowXStart + nodeDiameter + 10, arrowY - 5, arrowXStart + nodeDiameter, arrowY);
+                    g.drawLine(arrowXStart + nodeDiameter + 10, arrowY + 5, arrowXStart + nodeDiameter, arrowY);
                 }
                 x += spacing;
             }
 
             if (linkedList instanceof SingleLinkedList2) {
-                int lastX = x - spacing;  
-                int firstX = 50; 
-                int lastYBottom = y + nodeDiameter; 
-                int firstYBottom = y + nodeDiameter;  
-        
-                g.drawLine(lastX + nodeDiameter / 2, lastYBottom, lastX + nodeDiameter / 2, lastYBottom + 50); 
-                g.drawLine(lastX + nodeDiameter / 2, lastYBottom + 50, firstX + nodeDiameter / 2, firstYBottom + 50); 
-                g.drawLine(firstX + nodeDiameter / 2, firstYBottom + 50, firstX + nodeDiameter / 2, firstYBottom); 
-                g.drawLine(firstX + nodeDiameter / 2 - 5, firstYBottom + 10, firstX + nodeDiameter / 2, firstYBottom); 
-                g.drawLine(firstX + nodeDiameter / 2 + 5, firstYBottom + 10, firstX + nodeDiameter / 2, firstYBottom);  
+                int lastX = x - spacing;
+                int firstX = 50;
+                int lastYBottom = y + nodeDiameter;
+                int firstYBottom = y + nodeDiameter;
+
+                g.drawLine(lastX + nodeDiameter / 2, lastYBottom, lastX + nodeDiameter / 2, lastYBottom + 50);
+                g.drawLine(lastX + nodeDiameter / 2, lastYBottom + 50, firstX + nodeDiameter / 2, firstYBottom + 50);
+                g.drawLine(firstX + nodeDiameter / 2, firstYBottom + 50, firstX + nodeDiameter / 2, firstYBottom);
+                g.drawLine(firstX + nodeDiameter / 2 - 5, firstYBottom + 10, firstX + nodeDiameter / 2, firstYBottom);
+                g.drawLine(firstX + nodeDiameter / 2 + 5, firstYBottom + 10, firstX + nodeDiameter / 2, firstYBottom);
             }
         }
     }
