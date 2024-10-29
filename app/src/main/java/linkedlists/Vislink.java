@@ -768,6 +768,121 @@ public class Vislink {
         selectedElement2.setBounds(1050, 135, 150, 20);
         Swap.setBounds(1050, 160, 150, 40);
         Swap.setBackground(Color.MAGENTA);
+        Swap.addActionListener(e -> {
+            String input = selectedElement1.getText();
+            String input2 = selectedElement2.getText();
+            Integer index1 = Integer.parseInt(input);
+            Integer index2 = Integer.parseInt(input2);
+            int listSize = 0;
+
+            if (input.isEmpty()) {
+                JOptionPane.showMessageDialog(f, "Input is empty.");
+                return;
+            }
+
+            if (linkedList == null) {
+                JOptionPane.showMessageDialog(f, "Please select a list type and data type.");
+                return;
+            }
+
+            try {
+                switch (currentDataType) {
+                    case "Integer":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<Integer>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<Integer>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<Integer>) linkedList).size();
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<String>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<String>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<String>) linkedList).size();
+                        }
+                        break;
+                    case "Double":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<Double>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<Double>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<Double>) linkedList).size();
+                        }
+                        break;
+                    case "Char":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            listSize = ((SingleLinkedList1<Character>) linkedList).size();
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            listSize = ((SingleLinkedList2<Character>) linkedList).size();
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            listSize = ((DoubleLinkedList<Character>) linkedList).size();
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+
+                if (index2 < 0 || index2 < 0) {
+                    JOptionPane.showMessageDialog(f, "One of the selected indexes is out of bounds");
+                    return; 
+                }
+
+                if (index1 >= listSize || index2 >= listSize) {
+                    JOptionPane.showMessageDialog(f, "One of the selected indexes is out of bounds");
+                }
+
+                switch (currentDataType) {
+                    case "Integer":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Integer>) linkedList).swap(index1, index2);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Integer>) linkedList).swap(index1, index2);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Integer>) linkedList).swap(index1, index2);
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<String>) linkedList).swap(index1, index2);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<String>) linkedList).swap(index1, index2);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<String>) linkedList).swap(index1, index2);
+                        }
+                        break;
+                    case "Double":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Double>) linkedList).swap(index1, index2);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Double>) linkedList).swap(index1, index2);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Double>) linkedList).swap(index1, index2);
+                        }
+                        break;
+                    case "Char":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            ((SingleLinkedList1<Character>) linkedList).swap(index1, index2);
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            ((SingleLinkedList2<Character>) linkedList).swap(index1, index2);
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            ((DoubleLinkedList<Character>) linkedList).swap(index1, index2);
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+                visualizeList();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(f, "Input does not match the selected data type.");
+            } catch (ClassCastException ex) {
+                JOptionPane.showMessageDialog(f, "List type mismatch.");
+            }
+        });
         getElemenmtLabel.setBounds(1205, 40, 150, 30);
         getElemenmtLabel.setForeground(Color.MAGENTA);
         getElemenmtLabel.setFont(new Font("Monospaced", Font.PLAIN, 16));
