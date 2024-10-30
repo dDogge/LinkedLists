@@ -50,6 +50,8 @@ public class Vislink {
     private JLabel data;
     private JLabel size;
     private JPanel status;
+    private JTextArea statusArea;
+    private JScrollPane scrollPane;
 
     private Object linkedList;
     private String currentDataType;
@@ -66,6 +68,8 @@ public class Vislink {
         this.data = new JLabel("DATA");
         this.size = new JLabel("SIZE:");
         this.status = new JPanel();
+        this.statusArea = new JTextArea();
+        this.scrollPane = new JScrollPane(statusArea);
         this.listToBeChosen = new JLabel("CHOSE LIST TYPE");
         this.dataToBeChosen = new JLabel("CHOSE DATA TYPE");
         this.elementToBeAdded = new JLabel("TYPE ELEMENT");
@@ -161,10 +165,13 @@ public class Vislink {
                         Integer intValue = Integer.parseInt(input);
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Integer>) linkedList).addFirst(intValue);
+                            updateStatus(intValue + " added to the list");
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Integer>) linkedList).addFirst(intValue);
+                            updateStatus(intValue + " added to the list");
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Integer>) linkedList).addFirst(intValue);
+                            updateStatus(intValue + " added to the list");
                         }
                         break;
                     case "String":
@@ -954,6 +961,14 @@ public class Vislink {
             visualizeList();
         });
 
+        statusArea.setEditable(false);
+        statusArea.setBackground(Color.BLACK);
+        statusArea.setForeground(Color.GREEN);
+        statusArea.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setBackground(Color.GRAY);
+        scrollPane.setBounds(0, 0, 400, 150);
+
         field.setBackground(Color.BLACK);
         field.setBounds(0, 0, 1920, 760);
         field.setLayout(null);
@@ -965,6 +980,7 @@ public class Vislink {
         status.setBackground(Color.BLACK);
         status.setBounds(1510, 40, 400, 150);
         status.setLayout(null);
+        status.add(scrollPane);
 
         optionBar.add(status);
         optionBar.add(data);
@@ -1137,5 +1153,10 @@ public class Vislink {
                 g.drawLine(firstX + nodeDiameter / 2 + 5, firstYBottom + 10, firstX + nodeDiameter / 2, firstYBottom);
             }
         }
+    }
+
+    public void updateStatus(String newStatus) {
+        statusArea.append(newStatus + "\n");
+        statusArea.setCaretPosition(statusArea.getDocument().getLength());
     }
 }
