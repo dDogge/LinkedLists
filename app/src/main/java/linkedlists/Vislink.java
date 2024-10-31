@@ -56,6 +56,8 @@ public class Vislink {
     private Object linkedList;
     private String currentDataType;
 
+    private int sizeInt;
+
     @SuppressWarnings("unchecked")
     public Vislink() {
         this.f = new JFrame("VISLINK");
@@ -96,6 +98,7 @@ public class Vislink {
         this.get = new JButton("GET ELEMENT");
         this.getElemenmtLabel = new JLabel("TYPE ELEMENT");
         this.getElement = new JTextField();
+        sizeInt = 0;
 
         String[] listTypes = {
                 "Single Linked List",
@@ -113,7 +116,7 @@ public class Vislink {
         data.setBounds(1510, 5, 40, 30);
         data.setForeground(Color.GREEN);
         data.setFont(new Font("Monospaced", Font.PLAIN, 16));
-        size.setBounds(1800, 5, 50, 30);
+        size.setBounds(1770, 5, 80, 30);
         size.setForeground(Color.GREEN);
         size.setFont(new Font("Monospaced", Font.PLAIN, 16));
         setup.setBounds(10, 5, 60, 30);
@@ -165,32 +168,56 @@ public class Vislink {
                         Integer intValue = Integer.parseInt(input);
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Integer>) linkedList).addFirst(intValue);
-                            updateStatus(intValue + " added to the list");
+                            updateStatus("Element: " + intValue + ". added to the list");
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Integer>) linkedList).addFirst(intValue);
-                            updateStatus(intValue + " added to the list");
+                            updateStatus("Element: " + intValue + ". added to the list");
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Integer>) linkedList).addFirst(intValue);
-                            updateStatus(intValue + " added to the list");
+                            updateStatus("Element: " + intValue + ". added to the list");
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<String>) linkedList).addFirst(input);
+                            updateStatus("Element: " + input + ". added to the list");
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<String>) linkedList).addFirst(input);
+                            updateStatus("Element: " + input + ". added to the list");
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<String>) linkedList).addFirst(input);
+                            updateStatus("Element: " + input + ". added to the list");
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Double":
                         Double doubleValue = Double.parseDouble(input);
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Double>) linkedList).addFirst(doubleValue);
+                            updateStatus("Element: " + doubleValue + ". added to the list");
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Double>) linkedList).addFirst(doubleValue);
+                            updateStatus("Element: " + doubleValue + ". added to the list");
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Double>) linkedList).addFirst(doubleValue);
+                            updateStatus("Element: " + doubleValue + ". added to the list");
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Char":
@@ -198,10 +225,19 @@ public class Vislink {
                             char charValue = input.charAt(0);
                             if (linkedList instanceof SingleLinkedList1) {
                                 ((SingleLinkedList1<Character>) linkedList).addFirst(charValue);
+                                updateStatus("Element: " + charValue + ". added to the list");
+                                sizeInt++;
+                                size.setText("SIZE: " + sizeInt);
                             } else if (linkedList instanceof SingleLinkedList2) {
                                 ((SingleLinkedList2<Character>) linkedList).addFirst(charValue);
+                                updateStatus("Element: " + charValue + ". added to the list");
+                                sizeInt++;
+                                size.setText("SIZE: " + sizeInt);
                             } else if (linkedList instanceof DoubleLinkedList) {
                                 ((DoubleLinkedList<Character>) linkedList).addFirst(charValue);
+                                updateStatus("Element: " + charValue + ". added to the list");
+                                sizeInt++;
+                                size.setText("SIZE: " + sizeInt);
                             }
                         } else {
                             throw new IllegalArgumentException("Input is not a valid character.");
