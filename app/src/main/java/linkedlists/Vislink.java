@@ -140,8 +140,14 @@ public class Vislink {
         dataToBeChosen.setForeground(Color.WHITE);
         dataToBeChosen.setFont(new Font("Monospaced", Font.PLAIN, 16));
         dataType.setBounds(10, 145, 150, 30);
-        listType.addActionListener(e -> createList());
-        dataType.addActionListener(e -> createList());
+        listType.addActionListener(e -> {
+            createList();
+            updateStatus("Chosen list type: " + listType.getSelectedItem() + ".");
+        });
+        dataType.addActionListener(e -> {
+            createList();
+            updateStatus("Chosen data type: " + dataType.getSelectedItem() + ".");
+        });
 
         elementToBeAdded.setBounds(350, 40, 150, 30);
         elementToBeAdded.setForeground(Color.GREEN);
@@ -168,17 +174,17 @@ public class Vislink {
                         Integer intValue = Integer.parseInt(input);
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Integer>) linkedList).addFirst(intValue);
-                            updateStatus("Element: " + intValue + ". added to the list");
+                            updateStatus("Element: " + intValue + ". Added to the list at index 0");
                             sizeInt++;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Integer>) linkedList).addFirst(intValue);
-                            updateStatus("Element: " + intValue + ". added to the list");
+                            updateStatus("Element: " + intValue + ". Added to the list at index 0");
                             sizeInt++;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Integer>) linkedList).addFirst(intValue);
-                            updateStatus("Element: " + intValue + ". added to the list");
+                            updateStatus("Element: " + intValue + ". Added to the list at index 0");
                             sizeInt++;
                             size.setText("SIZE: " + sizeInt);
                         }
@@ -186,17 +192,17 @@ public class Vislink {
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<String>) linkedList).addFirst(input);
-                            updateStatus("Element: " + input + ". added to the list");
+                            updateStatus("Element: " + input + ". Added to the list at index 0");
                             sizeInt++;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<String>) linkedList).addFirst(input);
-                            updateStatus("Element: " + input + ". added to the list");
+                            updateStatus("Element: " + input + ". Added to the list at index 0");
                             sizeInt++;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<String>) linkedList).addFirst(input);
-                            updateStatus("Element: " + input + ". added to the list");
+                            updateStatus("Element: " + input + ". Added to the list at index 0");
                             sizeInt++;
                             size.setText("SIZE: " + sizeInt);
                         }
@@ -205,17 +211,17 @@ public class Vislink {
                         Double doubleValue = Double.parseDouble(input);
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Double>) linkedList).addFirst(doubleValue);
-                            updateStatus("Element: " + doubleValue + ". added to the list");
+                            updateStatus("Element: " + doubleValue + ". Added to the list at index 0");
                             sizeInt++;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Double>) linkedList).addFirst(doubleValue);
-                            updateStatus("Element: " + doubleValue + ". added to the list");
+                            updateStatus("Element: " + doubleValue + ". Added to the list at index 0");
                             sizeInt++;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Double>) linkedList).addFirst(doubleValue);
-                            updateStatus("Element: " + doubleValue + ". added to the list");
+                            updateStatus("Element: " + doubleValue + ". Added to the list at index 0");
                             sizeInt++;
                             size.setText("SIZE: " + sizeInt);
                         }
@@ -225,17 +231,17 @@ public class Vislink {
                             char charValue = input.charAt(0);
                             if (linkedList instanceof SingleLinkedList1) {
                                 ((SingleLinkedList1<Character>) linkedList).addFirst(charValue);
-                                updateStatus("Element: " + charValue + ". added to the list");
+                                updateStatus("Element: " + charValue + ". Added to the list at index 0");
                                 sizeInt++;
                                 size.setText("SIZE: " + sizeInt);
                             } else if (linkedList instanceof SingleLinkedList2) {
                                 ((SingleLinkedList2<Character>) linkedList).addFirst(charValue);
-                                updateStatus("Element: " + charValue + ". added to the list");
+                                updateStatus("Element: " + charValue + ". Added to the list at index 0");
                                 sizeInt++;
                                 size.setText("SIZE: " + sizeInt);
                             } else if (linkedList instanceof DoubleLinkedList) {
                                 ((DoubleLinkedList<Character>) linkedList).addFirst(charValue);
-                                updateStatus("Element: " + charValue + ". added to the list");
+                                updateStatus("Element: " + charValue + ". Added to the list at index 0");
                                 sizeInt++;
                                 size.setText("SIZE: " + sizeInt);
                             }
@@ -274,29 +280,56 @@ public class Vislink {
                         Integer intValue = Integer.parseInt(input);
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Integer>) linkedList).addLast(intValue);
+                            updateStatus("Element: " + intValue + ". Added to the list at index " + sizeInt);
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Integer>) linkedList).addLast(intValue);
+                            updateStatus("Element: " + intValue + ". Added to the list at index " + sizeInt);
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Integer>) linkedList).addLast(intValue);
+                            updateStatus("Element: " + intValue + ". Added to the list at index " + sizeInt);
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<String>) linkedList).addLast(input);
+                            updateStatus("Element: " + input + ". Added to the list at index " + sizeInt);
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<String>) linkedList).addLast(input);
+                            updateStatus("Element: " + input + ". Added to the list at index " + sizeInt);
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<String>) linkedList).addLast(input);
+                            updateStatus("Element: " + input + ". Added to the list at index " + sizeInt);
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Double":
                         Double doubleValue = Double.parseDouble(input);
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Double>) linkedList).addLast(doubleValue);
+                            updateStatus("Element: " + doubleValue + ". Added to the list at index " + sizeInt);
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Double>) linkedList).addLast(doubleValue);
+                            updateStatus("Element: " + doubleValue + ". Added to the list at index " + sizeInt);
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Double>) linkedList).addLast(doubleValue);
+                            updateStatus("Element: " + doubleValue + ". Added to the list at index " + sizeInt);
+                            sizeInt++;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Char":
@@ -304,10 +337,19 @@ public class Vislink {
                             char charValue = input.charAt(0);
                             if (linkedList instanceof SingleLinkedList1) {
                                 ((SingleLinkedList1<Character>) linkedList).addLast(charValue);
+                                updateStatus("Element: " + charValue + ". Added to the list at index " + sizeInt);
+                                sizeInt++;
+                                size.setText("SIZE: " + sizeInt);
                             } else if (linkedList instanceof SingleLinkedList2) {
                                 ((SingleLinkedList2<Character>) linkedList).addLast(charValue);
+                                updateStatus("Element: " + charValue + ". Added to the list at index " + sizeInt);
+                                sizeInt++;
+                                size.setText("SIZE: " + sizeInt);
                             } else if (linkedList instanceof DoubleLinkedList) {
                                 ((DoubleLinkedList<Character>) linkedList).addLast(charValue);
+                                updateStatus("Element: " + charValue + ". Added to the list at index " + sizeInt);
+                                sizeInt++;
+                                size.setText("SIZE: " + sizeInt);
                             }
                         } else {
                             throw new IllegalArgumentException("Input is not a valid character.");
@@ -1000,7 +1042,7 @@ public class Vislink {
         statusArea.setEditable(false);
         statusArea.setBackground(Color.BLACK);
         statusArea.setForeground(Color.GREEN);
-        statusArea.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        statusArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setBackground(Color.GRAY);
         scrollPane.setBounds(0, 0, 400, 150);
