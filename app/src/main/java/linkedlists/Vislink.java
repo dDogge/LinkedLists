@@ -998,37 +998,97 @@ public class Vislink {
                     case "Integer":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Integer>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". "
+                            );
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Integer>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". "
+                            );
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Integer>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". "
+                            );
                         }
                         break;
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<String>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". "
+                            );
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<String>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". "
+                            );
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<String>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". "
+                            );
                         }
                         break;
                     case "Double":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Double>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". "
+                            );
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Double>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". "
+                            );
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Double>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". "
+                            );
                         }
                         break;
                     case "Char":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Character>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". "
+                            );
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Character>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". "
+                            );
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Character>) linkedList).swap(index1, index2);
+                            updateStatus(
+                                "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) + 
+                                ". Swapped location with Element: " + 
+                                ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". "
+                            );
                         }
                         break;
                     default:
@@ -1098,6 +1158,7 @@ public class Vislink {
                     break;
                 default:
             }
+            updateStatus("Sorting the list");
             visualizeList();
         });
 
