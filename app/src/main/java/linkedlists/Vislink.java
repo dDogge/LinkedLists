@@ -616,29 +616,56 @@ public class Vislink {
                         Integer intValue = Integer.parseInt(input);
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Integer>) linkedList).remove(intValue);
+                            updateStatus("Element: " + intValue + ". Removed from the list");
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Integer>) linkedList).remove(intValue);
+                            updateStatus("Element: " + intValue + ". Removed from the list");
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Integer>) linkedList).remove(intValue);
+                            updateStatus("Element: " + intValue + ". Removed from the list");
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<String>) linkedList).remove(input);
+                            updateStatus("Element: " + input + ". Removed from the list");
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<String>) linkedList).remove(input);
+                            updateStatus("Element: " + input + ". Removed from the list");
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<String>) linkedList).remove(input);
+                            updateStatus("Element: " + input + ". Removed from the list");
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Double":
                         Double doubleValue = Double.parseDouble(input);
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Double>) linkedList).remove(doubleValue);
+                            updateStatus("Element: " + doubleValue + ". Removed from the list");
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Double>) linkedList).remove(doubleValue);
+                            updateStatus("Element: " + doubleValue + ". Removed from the list");
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Double>) linkedList).remove(doubleValue);
+                            updateStatus("Element: " + doubleValue + ". Removed from the list");
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Char":
@@ -646,10 +673,19 @@ public class Vislink {
                             char charValue = input.charAt(0);
                             if (linkedList instanceof SingleLinkedList1) {
                                 ((SingleLinkedList1<Character>) linkedList).remove(charValue);
+                                updateStatus("Element: " + charValue + ". Removed from the list");
+                                sizeInt--;
+                                size.setText("SIZE: " + sizeInt);
                             } else if (linkedList instanceof SingleLinkedList2) {
                                 ((SingleLinkedList2<Character>) linkedList).remove(charValue);
+                                updateStatus("Element: " + charValue + ". Removed from the list");
+                                sizeInt--;
+                                size.setText("SIZE: " + sizeInt);
                             } else if (linkedList instanceof DoubleLinkedList) {
                                 ((DoubleLinkedList<Character>) linkedList).remove(charValue);
+                                updateStatus("Element: " + charValue + ". Removed from the list");
+                                sizeInt--;
+                                size.setText("SIZE: " + sizeInt);
                             }
                         } else {
                             throw new IllegalArgumentException("Input is not a valid character.");
@@ -658,7 +694,6 @@ public class Vislink {
                     default:
                         throw new IllegalArgumentException("Unsupported data type.");
                 }
-
                 visualizeList();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(f, "Input does not match the selected data type.");
