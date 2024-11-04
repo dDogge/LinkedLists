@@ -708,38 +708,86 @@ public class Vislink {
                 switch (currentDataType) {
                     case "Integer":
                         if (linkedList instanceof SingleLinkedList1) {
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
                             ((SingleLinkedList1<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
                             ((SingleLinkedList2<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
                             ((DoubleLinkedList<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<String>) linkedList).removeFirst();
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList1<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<String>) linkedList).removeFirst();
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList2<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<String>) linkedList).removeFirst();
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
+                            ((DoubleLinkedList<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Double":
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<Double>) linkedList).removeFirst();
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList1<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<Double>) linkedList).removeFirst();
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList2<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<Double>) linkedList).removeFirst();
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
+                            ((DoubleLinkedList<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Char":
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<Character>) linkedList).removeFirst();
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList1<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<Character>) linkedList).removeFirst();
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList2<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<Character>) linkedList).removeFirst();
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(0)
+                                    + ". Removed from the list");
+                            ((DoubleLinkedList<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     default:
@@ -821,39 +869,86 @@ public class Vislink {
                 switch (currentDataType) {
                     case "Integer":
                         if (linkedList instanceof SingleLinkedList1) {
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<Integer>) linkedList).removeAt(index);
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<Integer>) linkedList).removeAt(index);
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<String>) linkedList).removeAt(index);
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<String>) linkedList).removeAt(index);
-                            ;
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<String>) linkedList).removeAt(index);
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Double":
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<Double>) linkedList).removeAt(index);
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<Double>) linkedList).removeAt(index);
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<Double>) linkedList).removeAt(index);
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Char":
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<Character>) linkedList).removeAt(index);
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<Character>) linkedList).removeAt(index);
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<Character>) linkedList).removeAt(index);
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index)
+                                    + ". Removed from the list at index: " + index);
+                            ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     default:
@@ -873,38 +968,86 @@ public class Vislink {
                 switch (currentDataType) {
                     case "Integer":
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<Integer>) linkedList).removeLast();
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList1<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<Integer>) linkedList).removeLast();
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList2<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<Integer>) linkedList).removeLast();
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((DoubleLinkedList<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<String>) linkedList).removeLast();
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList1<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<String>) linkedList).removeLast();
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList2<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<String>) linkedList).removeLast();
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((DoubleLinkedList<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Double":
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<Double>) linkedList).removeLast();
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList1<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<Double>) linkedList).removeLast();
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList2<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<Double>) linkedList).removeLast();
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((DoubleLinkedList<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     case "Char":
                         if (linkedList instanceof SingleLinkedList1) {
-                            ((SingleLinkedList1<Character>) linkedList).removeLast();
+                            updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList1<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
-                            ((SingleLinkedList2<Character>) linkedList).removeLast();
+                            updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((SingleLinkedList2<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
-                            ((DoubleLinkedList<Character>) linkedList).removeLast();
+                            updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(sizeInt - 1)
+                                    + ". Removed from the list");
+                            ((DoubleLinkedList<Integer>) linkedList).removeFirst();
+                            sizeInt--;
+                            size.setText("SIZE: " + sizeInt);
                         }
                         break;
                     default:
@@ -999,96 +1142,84 @@ public class Vislink {
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Integer>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". ");
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Integer>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". ");
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Integer>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". ");
                         }
                         break;
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<String>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". ");
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<String>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". ");
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<String>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". ");
                         }
                         break;
                     case "Double":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Double>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". ");
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Double>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". ");
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Double>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". ");
                         }
                         break;
                     case "Char":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Character>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". ");
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Character>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". ");
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Character>) linkedList).swap(index1, index2);
                             updateStatus(
-                                "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) + 
-                                ". Swapped location with Element: " + 
-                                ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". "
-                            );
+                                    "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) +
+                                            ". Swapped location with Element: " +
+                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". ");
                         }
                         break;
                     default:
