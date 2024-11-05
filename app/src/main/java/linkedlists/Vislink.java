@@ -555,7 +555,7 @@ public class Vislink {
                 return;
             }
 
-            boolean elementExists = false; // Variabel för att hålla koll på om elementet finns
+            boolean elementExists = false; 
 
             try {
                 switch (currentDataType) {
@@ -616,17 +616,17 @@ public class Vislink {
                         Integer intValue = Integer.parseInt(input);
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Integer>) linkedList).remove(intValue);
-                            updateStatus("Element: " + intValue + ". Removed from the list");
+                            updateStatus("Element: " + intValue + ". Removed from the list.");
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Integer>) linkedList).remove(intValue);
-                            updateStatus("Element: " + intValue + ". Removed from the list");
+                            updateStatus("Element: " + intValue + ". Removed from the list.");
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Integer>) linkedList).remove(intValue);
-                            updateStatus("Element: " + intValue + ". Removed from the list");
+                            updateStatus("Element: " + intValue + ". Removed from the list.");
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         }
@@ -634,17 +634,17 @@ public class Vislink {
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<String>) linkedList).remove(input);
-                            updateStatus("Element: " + input + ". Removed from the list");
+                            updateStatus("Element: " + input + ". Removed from the list.");
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<String>) linkedList).remove(input);
-                            updateStatus("Element: " + input + ". Removed from the list");
+                            updateStatus("Element: " + input + ". Removed from the list.");
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<String>) linkedList).remove(input);
-                            updateStatus("Element: " + input + ". Removed from the list");
+                            updateStatus("Element: " + input + ". Removed from the list.");
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         }
@@ -653,17 +653,17 @@ public class Vislink {
                         Double doubleValue = Double.parseDouble(input);
                         if (linkedList instanceof SingleLinkedList1) {
                             ((SingleLinkedList1<Double>) linkedList).remove(doubleValue);
-                            updateStatus("Element: " + doubleValue + ". Removed from the list");
+                            updateStatus("Element: " + doubleValue + ". Removed from the list.");
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Double>) linkedList).remove(doubleValue);
-                            updateStatus("Element: " + doubleValue + ". Removed from the list");
+                            updateStatus("Element: " + doubleValue + ". Removed from the list.");
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Double>) linkedList).remove(doubleValue);
-                            updateStatus("Element: " + doubleValue + ". Removed from the list");
+                            updateStatus("Element: " + doubleValue + ". Removed from the list.");
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         }
@@ -673,17 +673,17 @@ public class Vislink {
                             char charValue = input.charAt(0);
                             if (linkedList instanceof SingleLinkedList1) {
                                 ((SingleLinkedList1<Character>) linkedList).remove(charValue);
-                                updateStatus("Element: " + charValue + ". Removed from the list");
+                                updateStatus("Element: " + charValue + ". Removed from the list.");
                                 sizeInt--;
                                 size.setText("SIZE: " + sizeInt);
                             } else if (linkedList instanceof SingleLinkedList2) {
                                 ((SingleLinkedList2<Character>) linkedList).remove(charValue);
-                                updateStatus("Element: " + charValue + ". Removed from the list");
+                                updateStatus("Element: " + charValue + ". Removed from the list.");
                                 sizeInt--;
                                 size.setText("SIZE: " + sizeInt);
                             } else if (linkedList instanceof DoubleLinkedList) {
                                 ((DoubleLinkedList<Character>) linkedList).remove(charValue);
-                                updateStatus("Element: " + charValue + ". Removed from the list");
+                                updateStatus("Element: " + charValue + ". Removed from the list.");
                                 sizeInt--;
                                 size.setText("SIZE: " + sizeInt);
                             }
@@ -709,19 +709,19 @@ public class Vislink {
                     case "Integer":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList1<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList2<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((DoubleLinkedList<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -730,19 +730,19 @@ public class Vislink {
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList1<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList2<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((DoubleLinkedList<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -751,19 +751,19 @@ public class Vislink {
                     case "Double":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList1<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList2<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((DoubleLinkedList<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -772,19 +772,19 @@ public class Vislink {
                     case "Char":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList1<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList2<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(0)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((DoubleLinkedList<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -862,7 +862,7 @@ public class Vislink {
                 }
 
                 if (index < 0 || index >= listSize) {
-                    JOptionPane.showMessageDialog(f, "No element present at index: " + index);
+                    JOptionPane.showMessageDialog(f, "No element present at index: " + index + ".");
                     return;
                 }
 
@@ -870,19 +870,19 @@ public class Vislink {
                     case "Integer":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -891,19 +891,19 @@ public class Vislink {
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -912,19 +912,19 @@ public class Vislink {
                     case "Double":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -933,19 +933,19 @@ public class Vislink {
                     case "Char":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index)
-                                    + ". Removed from the list at index: " + index);
+                                    + ". Removed from the list at index: " + index + ".");
                             ((SingleLinkedList1<Integer>) linkedList).removeAt(index);
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -969,19 +969,19 @@ public class Vislink {
                     case "Integer":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList1<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList2<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((DoubleLinkedList<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -990,19 +990,19 @@ public class Vislink {
                     case "String":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList1<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList2<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((DoubleLinkedList<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -1011,19 +1011,19 @@ public class Vislink {
                     case "Double":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList1<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList2<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((DoubleLinkedList<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -1032,19 +1032,19 @@ public class Vislink {
                     case "Char":
                         if (linkedList instanceof SingleLinkedList1) {
                             updateStatus("Element: " + ((SingleLinkedList1<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList1<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof SingleLinkedList2) {
                             updateStatus("Element: " + ((SingleLinkedList2<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((SingleLinkedList2<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
                         } else if (linkedList instanceof DoubleLinkedList) {
                             updateStatus("Element: " + ((DoubleLinkedList<Integer>) linkedList).get(sizeInt - 1)
-                                    + ". Removed from the list");
+                                    + ". Removed from the list.");
                             ((DoubleLinkedList<Integer>) linkedList).removeFirst();
                             sizeInt--;
                             size.setText("SIZE: " + sizeInt);
@@ -1129,12 +1129,12 @@ public class Vislink {
                 }
 
                 if (index2 < 0 || index2 < 0) {
-                    JOptionPane.showMessageDialog(f, "One of the selected indexes is out of bounds");
+                    JOptionPane.showMessageDialog(f, "One of the selected indexes is out of bounds.");
                     return;
                 }
 
                 if (index1 >= listSize || index2 >= listSize) {
-                    JOptionPane.showMessageDialog(f, "One of the selected indexes is out of bounds");
+                    JOptionPane.showMessageDialog(f, "One of the selected indexes is out of bounds.");
                 }
 
                 switch (currentDataType) {
@@ -1144,19 +1144,19 @@ public class Vislink {
                             updateStatus(
                                     "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". ");
+                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ".");
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Integer>) linkedList).swap(index1, index2);
                             updateStatus(
                                     "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". ");
+                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ".");
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Integer>) linkedList).swap(index1, index2);
                             updateStatus(
                                     "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". ");
+                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ".");
                         }
                         break;
                     case "String":
@@ -1165,19 +1165,19 @@ public class Vislink {
                             updateStatus(
                                     "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". ");
+                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ".");
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<String>) linkedList).swap(index1, index2);
                             updateStatus(
                                     "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". ");
+                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ".");
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<String>) linkedList).swap(index1, index2);
                             updateStatus(
                                     "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". ");
+                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ".");
                         }
                         break;
                     case "Double":
@@ -1186,19 +1186,19 @@ public class Vislink {
                             updateStatus(
                                     "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". ");
+                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ".");
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Double>) linkedList).swap(index1, index2);
                             updateStatus(
                                     "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". ");
+                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ".");
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Double>) linkedList).swap(index1, index2);
                             updateStatus(
                                     "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". ");
+                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ".");
                         }
                         break;
                     case "Char":
@@ -1207,19 +1207,19 @@ public class Vislink {
                             updateStatus(
                                     "Element: " + ((SingleLinkedList1<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ". ");
+                                            ((SingleLinkedList1<Integer>) linkedList).get(index2) + ".");
                         } else if (linkedList instanceof SingleLinkedList2) {
                             ((SingleLinkedList2<Character>) linkedList).swap(index1, index2);
                             updateStatus(
                                     "Element: " + ((SingleLinkedList2<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ". ");
+                                            ((SingleLinkedList2<Integer>) linkedList).get(index2) + ".");
                         } else if (linkedList instanceof DoubleLinkedList) {
                             ((DoubleLinkedList<Character>) linkedList).swap(index1, index2);
                             updateStatus(
                                     "Element: " + ((DoubleLinkedList<Integer>) linkedList).get(index1) +
                                             ". Swapped location with Element: " +
-                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ". ");
+                                            ((DoubleLinkedList<Integer>) linkedList).get(index2) + ".");
                         }
                         break;
                     default:
@@ -1242,7 +1242,7 @@ public class Vislink {
         Sort.setBackground(Color.MAGENTA);
         Sort.addActionListener(e -> {
             if (linkedList == null) {
-                JOptionPane.showMessageDialog(f, "Please add something to the list");
+                JOptionPane.showMessageDialog(f, "Please add something to the list.");
                 return;
             }
             Comparator<Integer> intComp = Integer::compare;
@@ -1289,7 +1289,7 @@ public class Vislink {
                     break;
                 default:
             }
-            updateStatus("Sorting the list");
+            updateStatus("Sorting the list.");
             visualizeList();
         });
 
