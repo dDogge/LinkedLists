@@ -142,10 +142,12 @@ public class Vislink {
         dataType.setBounds(10, 145, 150, 30);
         listType.addActionListener(e -> {
             createList();
+            sizeInt = 0;
             updateStatus("Chosen list type: " + listType.getSelectedItem() + ".");
         });
         dataType.addActionListener(e -> {
             createList();
+            sizeInt = 0;
             updateStatus("Chosen data type: " + dataType.getSelectedItem() + ".");
         });
 
@@ -1238,6 +1240,122 @@ public class Vislink {
         getElement.setBounds(1205, 75, 150, 20);
         get.setBounds(1205, 100, 150, 40);
         get.setBackground(Color.MAGENTA);
+        get.addActionListener(e -> {
+            String input = getElement.getText();
+
+            if (input.isEmpty()) {
+                JOptionPane.showMessageDialog(f, "Input is empty.");
+                return;
+            }
+
+            if (linkedList == null) {
+                JOptionPane.showMessageDialog(f, "Please select a list type and data type.");
+                return;
+            }
+
+            try {
+                switch (currentDataType) {
+                    case "Integer":
+                        Integer intValue = Integer.parseInt(input);
+                        if (linkedList instanceof SingleLinkedList1) {
+                            if (((SingleLinkedList1<Integer>) linkedList).exists(intValue)) {
+                                updateStatus("Element: " + intValue + ". Is present in the list.");
+                            } else {
+                                updateStatus("Element: " + intValue + ". Is not present in the list");
+                            }
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            if (((SingleLinkedList2<Integer>) linkedList).exists(intValue)) {
+                                updateStatus("Element: " + intValue + ". Is present in the list.");
+                            } else {
+                                updateStatus("Element: " + intValue + ". Is not present in the list");
+                            }
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            if (((DoubleLinkedList<Integer>) linkedList).exists(intValue)) {
+                                updateStatus("Element: " + intValue + ". Is present in the list.");
+                            } else {
+                                updateStatus("Element: " + intValue + ". Is not present in the list");
+                            }
+                        }
+                        break;
+                    case "String":
+                        if (linkedList instanceof SingleLinkedList1) {
+                            if (((SingleLinkedList1<String>) linkedList).exists(input)) {
+                                updateStatus("Element: " + input + ". Is present in the list.");
+                            } else {
+                                updateStatus("Element: " + input + ". Is not present in the list");
+                            }
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            if (((SingleLinkedList2<String>) linkedList).exists(input)) {
+                                updateStatus("Element: " + input + ". Is present in the list.");
+                            } else {
+                                updateStatus("Element: " + input + ". Is not present in the list");
+                            }
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            if (((DoubleLinkedList<String>) linkedList).exists(input)) {
+                                updateStatus("Element: " + input + ". Is present in the list.");
+                            } else {
+                                updateStatus("Element: " + input + ". Is not present in the list");
+                            }
+                        }
+                        break;
+                    case "Double":
+                        Double doubleValue = Double.parseDouble(input);
+                        if (linkedList instanceof SingleLinkedList1) {
+                            if (((SingleLinkedList1<Double>) linkedList).exists(doubleValue)) {
+                                updateStatus("Element: " + doubleValue + ". Is present in the list.");
+                            } else {
+                                updateStatus("Element: " + doubleValue + ". Is not present in the list");
+                            }
+                        } else if (linkedList instanceof SingleLinkedList2) {
+                            if (((SingleLinkedList2<Double>) linkedList).exists(doubleValue)) {
+                                updateStatus("Element: " + doubleValue + ". Is present in the list.");
+                            } else {
+                                updateStatus("Element: " + doubleValue + ". Is not present in the list");
+                            }
+                        } else if (linkedList instanceof DoubleLinkedList) {
+                            if (((DoubleLinkedList<Double>) linkedList).exists(doubleValue)) {
+                                updateStatus("Element: " + doubleValue + ". Is present in the list.");
+                            } else {
+                                updateStatus("Element: " + doubleValue + ". Is not present in the list");
+                            }
+                        }
+                        break;
+                    case "Char":
+                        if (input.length() == 1) {
+                            char charValue = input.charAt(0);
+                            if (linkedList instanceof SingleLinkedList1) {
+                                if (((SingleLinkedList1<Character>) linkedList).exists(charValue)) {
+                                    updateStatus("Element: " + charValue + ". Is present in the list.");
+                                } else {
+                                    updateStatus("Element: " + charValue + ". Is not present in the list");
+                                }
+                            } else if (linkedList instanceof SingleLinkedList2) {
+                                if (((SingleLinkedList2<Character>) linkedList).exists(charValue)) {
+                                    updateStatus("Element: " + charValue + ". Is present in the list.");
+                                } else {
+                                    updateStatus("Element: " + charValue + ". Is not present in the list");
+                                }
+                            } else if (linkedList instanceof DoubleLinkedList) {
+                                if (((DoubleLinkedList<Character>) linkedList).exists(charValue)) {
+                                    updateStatus("Element: " + charValue + ". Is present in the list.");
+                                } else {
+                                    updateStatus("Element: " + charValue + ". Is not present in the list");
+                                }
+                            }
+                        } else {
+                            throw new IllegalArgumentException("Input is not a valid character.");
+                        }
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unsupported data type.");
+                }
+                visualizeList();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(f, "Input does not match the selected data type.");
+            } catch (ClassCastException ex) {
+                JOptionPane.showMessageDialog(f, "List type mismatch.");
+            }
+        });
         Sort.setBounds(1205, 145, 150, 40);
         Sort.setBackground(Color.MAGENTA);
         Sort.addActionListener(e -> {
