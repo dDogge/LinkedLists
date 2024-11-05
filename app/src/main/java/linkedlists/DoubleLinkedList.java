@@ -145,7 +145,7 @@ public class DoubleLinkedList<E> {
             while (temp.next != null && !temp.next.element.equals(element)) {
                 temp = temp.next;
             }
-            
+
             if (temp.next != null && temp.next.element.equals(element)) {
                 Node<E> removed = temp.next;
                 temp.next = removed.next;
@@ -182,7 +182,7 @@ public class DoubleLinkedList<E> {
             temp.next.prev = temp.prev;
             size--;
         }
-    } 
+    }
 
     public void Sort(Comparator<E> comparator) {
         int n = size;
@@ -206,11 +206,11 @@ public class DoubleLinkedList<E> {
         if (isEmpty()) {
             throw new NoSuchElementException("List is empty");
         }
-    
+
         if (index1 < 0 || index1 >= size) {
             throw new IllegalArgumentException("Index out of bounds: " + index1);
         }
-    
+
         if (index2 < 0 || index2 >= size) {
             throw new IllegalArgumentException("Index out of bounds: " + index2);
         }

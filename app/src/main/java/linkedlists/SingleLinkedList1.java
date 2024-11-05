@@ -187,11 +187,11 @@ public class SingleLinkedList1<E> {
         if (isEmpty()) {
             throw new NoSuchElementException("List is empty");
         }
-    
+
         if (index1 < 0 || index1 >= size) {
             throw new IllegalArgumentException("Index out of bounds: " + index1);
         }
-    
+
         if (index2 < 0 || index2 >= size) {
             throw new IllegalArgumentException("Index out of bounds: " + index2);
         }

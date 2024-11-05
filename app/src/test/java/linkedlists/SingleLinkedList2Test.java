@@ -64,9 +64,9 @@ public class SingleLinkedList2Test {
 
     @Test
     public void testAddAtIndex() {
-        intlist.addFirst(1); 
-        intlist.addLast(3); 
-        intlist.add(2, 1);  
+        intlist.addFirst(1);
+        intlist.addLast(3);
+        intlist.add(2, 1);
         assertEquals(2, intlist.get(1));
         assertEquals(3, intlist.get(2));
 
@@ -85,9 +85,10 @@ public class SingleLinkedList2Test {
 
     @Test
     public void testRemoveFirst() {
-        intlist.addFirst(1); 
-        intlist.addLast(2); 
-        intlist.removeFirst();;
+        intlist.addFirst(1);
+        intlist.addLast(2);
+        intlist.removeFirst();
+        ;
         assertEquals(2, intlist.getFirst());
 
         stringlist.addFirst("abc");
@@ -103,9 +104,10 @@ public class SingleLinkedList2Test {
 
     @Test
     public void testRemoveLast() {
-        intlist.addFirst(1); 
-        intlist.addLast(2); 
-        intlist.removeLast();;
+        intlist.addFirst(1);
+        intlist.addLast(2);
+        intlist.removeLast();
+        ;
         assertEquals(1, intlist.getLast());
 
         stringlist.addFirst("abc");
@@ -194,7 +196,7 @@ public class SingleLinkedList2Test {
         intlist.Sort(intComp);
         assertEquals(1, intlist.get(0));
         assertEquals(2, intlist.get(1));
-        assertEquals(3, intlist.get(2)); 
+        assertEquals(3, intlist.get(2));
 
         stringlist.addLast("cab");
         stringlist.addLast("abc");
@@ -204,7 +206,7 @@ public class SingleLinkedList2Test {
         assertEquals("abc", stringlist.get(0));
         assertEquals("bca", stringlist.get(1));
         assertEquals("cab", stringlist.get(2));
-        
+
         charlist.addLast('c');
         charlist.addLast('a');
         charlist.addLast('b');
@@ -212,7 +214,7 @@ public class SingleLinkedList2Test {
         charlist.Sort(charComp);
         assertEquals('a', charlist.get(0));
         assertEquals('b', charlist.get(1));
-        assertEquals('c', charlist.get(2)); 
+        assertEquals('c', charlist.get(2));
     }
 
     @Test
@@ -239,4 +241,3 @@ public class SingleLinkedList2Test {
         assertEquals(0, stringlist.size());
     }
 }
-

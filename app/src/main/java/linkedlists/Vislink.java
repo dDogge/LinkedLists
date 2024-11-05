@@ -555,7 +555,7 @@ public class Vislink {
                 return;
             }
 
-            boolean elementExists = false; 
+            boolean elementExists = false;
 
             try {
                 switch (currentDataType) {
